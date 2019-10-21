@@ -175,7 +175,6 @@
 			isa = PBXGroup;
 			children = (
 				4C39BB15235E5DE000917EA9 /* DetailCell.swift */,
-				4C39BB18235E5DEE00917EA9 /* CategoryCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -199,9 +198,18 @@
 		4C39BB24235E70A400917EA9 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				4C39BB27235E72E900917EA9 /* Cells */,
 				4C39BB25235E70B500917EA9 /* CategoriesViewController.swift */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		4C39BB27235E72E900917EA9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4C39BB18235E5DEE00917EA9 /* CategoryCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
