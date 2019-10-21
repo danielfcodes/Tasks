@@ -14,21 +14,22 @@ enum DetailSection: String {
 }
 
 protocol DetailItemProtocol {
+    var sectionType: DetailSection { get }
     var sectionTitle: String { get }
     var task: Task { get }
 }
 
 struct DetailItem: DetailItemProtocol {
     
-    let section: DetailSection
+    let sectionType: DetailSection
     let task: Task
     
     var sectionTitle: String {
-        return section.rawValue.capitalized
+        return sectionType.rawValue.capitalized
     }
     
-    init(section: DetailSection, task: Task) {
-        self.section = section
+    init(sectionType: DetailSection, task: Task) {
+        self.sectionType = sectionType
         self.task = task
     }
     

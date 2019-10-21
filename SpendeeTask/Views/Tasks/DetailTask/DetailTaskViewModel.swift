@@ -22,13 +22,17 @@ class DetailTaskViewModel {
         setupItems()
     }
     
-    func sectionForHeader(index: Int) -> String {
+    func sectionForHeader(index: Int) -> DetailSection {
+        return items[index].sectionType
+    }
+    
+    func sectionTitleForHeader(index: Int) -> String {
         return items[index].sectionTitle
     }
     
     private func setupItems() {
-        items.append(DetailItem(section: .general, task: task))
-        items.append(DetailItem(section: .category, task: task))
+        items.append(DetailItem(sectionType: .general, task: task))
+        items.append(DetailItem(sectionType: .category, task: task))
     }
     
 }

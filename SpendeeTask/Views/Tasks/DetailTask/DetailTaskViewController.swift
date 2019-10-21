@@ -14,7 +14,8 @@ class DetailTaskViewController: UIViewController {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(TaskCell.self, forCellReuseIdentifier: TaskCell.identifier)
+        tableView.register(DetailCell.self, forCellReuseIdentifier: DetailCell.identifier)
+        tableView.register(CategoryCell.self, forCellReuseIdentifier: CategoryCell.identifier)
         return tableView
     }()
     
@@ -53,7 +54,11 @@ class DetailTaskViewController: UIViewController {
 extension DetailTaskViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        let sectionType = viewModel.sectionForHeader(index: indexPath.section)
+        switch sectionType {
+        case .general: return 160
+        case .category: return 60
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -61,7 +66,7 @@ extension DetailTaskViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModel.sectionForHeader(index: section)
+        return viewModel.sectionTitleForHeader(index: section)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -81,7 +86,22 @@ extension DetailTaskViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TaskCell.identifier, for: indexPath) as? TaskCell else { return UITableViewCell() }
+        let sectionType = viewModel.sectionForHeader(index: indexPath.section)
+        switch sectionType {
+        case .general: return setupDetailCell(indexPath: indexPath)
+        case .category: return setupCategoryCell(indexPath: indexPath)
+        }
+    }
+    
+    private func setupDetailCell(indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailCell.identifier, for: indexPath) as? DetailCell else { return UITableViewCell() }
+        
+        return cell
+    }
+    
+    private func setupCategoryCell(indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.identifier, for: indexPath) as? CategoryCell else { return UITableViewCell() }
+        
         return cell
     }
     
