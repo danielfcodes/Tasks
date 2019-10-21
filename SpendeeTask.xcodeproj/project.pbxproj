@@ -22,6 +22,8 @@
 		4C39BB1B235E5F2A00917EA9 /* DetailTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB1A235E5F2A00917EA9 /* DetailTaskViewModel.swift */; };
 		4C39BB1E235E5F6200917EA9 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB1D235E5F6200917EA9 /* Task.swift */; };
 		4C39BB20235E63CB00917EA9 /* DetailItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB1F235E63CB00917EA9 /* DetailItem.swift */; };
+		4C39BB23235E6F3700917EA9 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB22235E6F3700917EA9 /* CustomNavigationController.swift */; };
+		4C39BB26235E70B500917EA9 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB25235E70B500917EA9 /* CategoriesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		4C39BB1A235E5F2A00917EA9 /* DetailTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTaskViewModel.swift; sourceTree = "<group>"; };
 		4C39BB1D235E5F6200917EA9 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		4C39BB1F235E63CB00917EA9 /* DetailItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItem.swift; sourceTree = "<group>"; };
+		4C39BB22235E6F3700917EA9 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		4C39BB25235E70B500917EA9 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 		4C39BB02235E473200917EA9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4C39BB24235E70A400917EA9 /* Categories */,
+				4C39BB21235E6EC300917EA9 /* Navigation */,
 				4C39BB0F235E5A8200917EA9 /* Settings */,
 				4C39BB05235E478C00917EA9 /* Tasks */,
 			);
@@ -182,6 +188,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		4C39BB21235E6EC300917EA9 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				4C39BB22235E6F3700917EA9 /* CustomNavigationController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		4C39BB24235E70A400917EA9 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4C39BB25235E70B500917EA9 /* CategoriesViewController.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -258,6 +280,7 @@
 				4C39BB16235E5DE000917EA9 /* DetailCell.swift in Sources */,
 				4C39BB04235E478500917EA9 /* TasksViewController.swift in Sources */,
 				4C39BB1E235E5F6200917EA9 /* Task.swift in Sources */,
+				4C39BB23235E6F3700917EA9 /* CustomNavigationController.swift in Sources */,
 				4C39BB1B235E5F2A00917EA9 /* DetailTaskViewModel.swift in Sources */,
 				4C39BB11235E5A8E00917EA9 /* SettingsViewController.swift in Sources */,
 				4C39BAED235E467D00917EA9 /* AppDelegate.swift in Sources */,
@@ -265,6 +288,7 @@
 				4C39BB0E235E59A400917EA9 /* DetailTaskViewController.swift in Sources */,
 				4C39BB0B235E4F0500917EA9 /* CellProtocol.swift in Sources */,
 				4C39BB19235E5DEE00917EA9 /* CategoryCell.swift in Sources */,
+				4C39BB26235E70B500917EA9 /* CategoriesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

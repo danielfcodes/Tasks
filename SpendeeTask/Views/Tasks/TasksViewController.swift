@@ -54,7 +54,9 @@ class TasksViewController: UIViewController {
     @objc
     private func showSettingsPressed() {
         let settingsViewController = SettingsViewController()
-        present(settingsViewController, animated: true, completion: nil)
+        let navigationController = CustomNavigationController(rootViewController: settingsViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true, completion: nil)
     }
     
     private func showDetailTask(indexPath: IndexPath) {
