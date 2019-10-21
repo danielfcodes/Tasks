@@ -9,14 +9,19 @@
 import UIKit
 import SnapKit
 
+protocol CategoriesViewControllerDelegate: class {
+    func categoriesViewControllerDelegate(didSelectRowAt indexPath: IndexPath)
+}
+
 class CategoriesViewController: UIViewController {
+    
+    weak var delegate: CategoriesViewControllerDelegate?
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(TaskCell.self, forCellReuseIdentifier: TaskCell.identifier)
-        tableView.allowsSelection = false
+        tableView.register(CategoryCell.self, forCellReuseIdentifier: CategoryCell.identifier)
         return tableView
     }()
     
@@ -43,7 +48,12 @@ class CategoriesViewController: UIViewController {
 extension CategoriesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 60
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        delegate?.categoriesViewControllerDelegate(didSelectRowAt: indexPath)
     }
     
 }
@@ -55,7 +65,7 @@ extension CategoriesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TaskCell.identifier, for: indexPath) as? TaskCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.identifier, for: indexPath) as? CategoryCell else { return UITableViewCell() }
         return cell
     }
     

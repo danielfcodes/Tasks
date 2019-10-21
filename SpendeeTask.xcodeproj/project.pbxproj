@@ -24,6 +24,8 @@
 		4C39BB20235E63CB00917EA9 /* DetailItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB1F235E63CB00917EA9 /* DetailItem.swift */; };
 		4C39BB23235E6F3700917EA9 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB22235E6F3700917EA9 /* CustomNavigationController.swift */; };
 		4C39BB26235E70B500917EA9 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB25235E70B500917EA9 /* CategoriesViewController.swift */; };
+		4C39BB2A235E748400917EA9 /* SettingsCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB29235E748400917EA9 /* SettingsCategoriesViewController.swift */; };
+		4C39BB2D235E74E600917EA9 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB2C235E74E600917EA9 /* UIViewControllerExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		4C39BB1F235E63CB00917EA9 /* DetailItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItem.swift; sourceTree = "<group>"; };
 		4C39BB22235E6F3700917EA9 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		4C39BB25235E70B500917EA9 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		4C39BB29235E748400917EA9 /* SettingsCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCategoriesViewController.swift; sourceTree = "<group>"; };
+		4C39BB2C235E74E600917EA9 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,7 @@
 		4C39BAEB235E467D00917EA9 /* SpendeeTask */ = {
 			isa = PBXGroup;
 			children = (
+				4C39BB2B235E74D900917EA9 /* Extensions */,
 				4C39BB09235E4EF800917EA9 /* Protocols */,
 				4C39BB01235E46C200917EA9 /* Resources */,
 				4C39BB00235E469D00917EA9 /* SupportingFiles */,
@@ -158,6 +163,7 @@
 		4C39BB0F235E5A8200917EA9 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				4C39BB28235E747600917EA9 /* Categories */,
 				4C39BB10235E5A8E00917EA9 /* SettingsViewController.swift */,
 			);
 			path = Settings;
@@ -210,6 +216,22 @@
 				4C39BB18235E5DEE00917EA9 /* CategoryCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		4C39BB28235E747600917EA9 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4C39BB29235E748400917EA9 /* SettingsCategoriesViewController.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		4C39BB2B235E74D900917EA9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4C39BB2C235E74E600917EA9 /* UIViewControllerExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,12 +305,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C39BB08235E4ECA00917EA9 /* TaskCell.swift in Sources */,
+				4C39BB2D235E74E600917EA9 /* UIViewControllerExtensions.swift in Sources */,
 				4C39BB20235E63CB00917EA9 /* DetailItem.swift in Sources */,
 				4C39BB14235E5BD900917EA9 /* AddTaskViewController.swift in Sources */,
 				4C39BB16235E5DE000917EA9 /* DetailCell.swift in Sources */,
 				4C39BB04235E478500917EA9 /* TasksViewController.swift in Sources */,
 				4C39BB1E235E5F6200917EA9 /* Task.swift in Sources */,
 				4C39BB23235E6F3700917EA9 /* CustomNavigationController.swift in Sources */,
+				4C39BB2A235E748400917EA9 /* SettingsCategoriesViewController.swift in Sources */,
 				4C39BB1B235E5F2A00917EA9 /* DetailTaskViewModel.swift in Sources */,
 				4C39BB11235E5A8E00917EA9 /* SettingsViewController.swift in Sources */,
 				4C39BAED235E467D00917EA9 /* AppDelegate.swift in Sources */,

@@ -47,7 +47,7 @@ class SettingsViewController: UIViewController {
     }
     
     private func showCategories() {
-        let categoriesViewController = CategoriesViewController()
+        let categoriesViewController = SettingsCategoriesViewController()
         navigationController?.pushViewController(categoriesViewController, animated: true)
     }
 }
