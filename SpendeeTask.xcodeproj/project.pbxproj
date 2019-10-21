@@ -26,6 +26,8 @@
 		4C39BB26235E70B500917EA9 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB25235E70B500917EA9 /* CategoriesViewController.swift */; };
 		4C39BB2A235E748400917EA9 /* SettingsCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB29235E748400917EA9 /* SettingsCategoriesViewController.swift */; };
 		4C39BB2D235E74E600917EA9 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB2C235E74E600917EA9 /* UIViewControllerExtensions.swift */; };
+		4C39BB31235E781500917EA9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB30235E781500917EA9 /* CoreDataManager.swift */; };
+		4C39BB34235E78E600917EA9 /* Spendee.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB32235E78E600917EA9 /* Spendee.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		4C39BB25235E70B500917EA9 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		4C39BB29235E748400917EA9 /* SettingsCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCategoriesViewController.swift; sourceTree = "<group>"; };
 		4C39BB2C235E74E600917EA9 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		4C39BB30235E781500917EA9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		4C39BB33235E78E600917EA9 /* Spendee.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Spendee.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 		4C39BAEB235E467D00917EA9 /* SpendeeTask */ = {
 			isa = PBXGroup;
 			children = (
+				4C39BB2E235E76FA00917EA9 /* Database */,
 				4C39BB2B235E74D900917EA9 /* Extensions */,
 				4C39BB09235E4EF800917EA9 /* Protocols */,
 				4C39BB01235E46C200917EA9 /* Resources */,
@@ -234,6 +239,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		4C39BB2E235E76FA00917EA9 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				4C39BB30235E781500917EA9 /* CoreDataManager.swift */,
+				4C39BB32235E78E600917EA9 /* Spendee.xcdatamodeld */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -310,10 +324,12 @@
 				4C39BB14235E5BD900917EA9 /* AddTaskViewController.swift in Sources */,
 				4C39BB16235E5DE000917EA9 /* DetailCell.swift in Sources */,
 				4C39BB04235E478500917EA9 /* TasksViewController.swift in Sources */,
+				4C39BB31235E781500917EA9 /* CoreDataManager.swift in Sources */,
 				4C39BB1E235E5F6200917EA9 /* Task.swift in Sources */,
 				4C39BB23235E6F3700917EA9 /* CustomNavigationController.swift in Sources */,
 				4C39BB2A235E748400917EA9 /* SettingsCategoriesViewController.swift in Sources */,
 				4C39BB1B235E5F2A00917EA9 /* DetailTaskViewModel.swift in Sources */,
+				4C39BB34235E78E600917EA9 /* Spendee.xcdatamodeld in Sources */,
 				4C39BB11235E5A8E00917EA9 /* SettingsViewController.swift in Sources */,
 				4C39BAED235E467D00917EA9 /* AppDelegate.swift in Sources */,
 				4C39BAEF235E467D00917EA9 /* SceneDelegate.swift in Sources */,
@@ -510,6 +526,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4C39BB32235E78E600917EA9 /* Spendee.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4C39BB33235E78E600917EA9 /* Spendee.xcdatamodel */,
+			);
+			currentVersion = 4C39BB33235E78E600917EA9 /* Spendee.xcdatamodel */;
+			path = Spendee.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4C39BAE1235E467D00917EA9 /* Project object */;
 }
