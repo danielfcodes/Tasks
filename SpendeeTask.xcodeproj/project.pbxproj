@@ -19,6 +19,8 @@
 		4C39BB14235E5BD900917EA9 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB13235E5BD900917EA9 /* AddTaskViewController.swift */; };
 		4C39BB16235E5DE000917EA9 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB15235E5DE000917EA9 /* DetailCell.swift */; };
 		4C39BB19235E5DEE00917EA9 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB18235E5DEE00917EA9 /* CategoryCell.swift */; };
+		4C39BB1B235E5F2A00917EA9 /* DetailTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB1A235E5F2A00917EA9 /* DetailTaskViewModel.swift */; };
+		4C39BB1E235E5F6200917EA9 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB1D235E5F6200917EA9 /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		4C39BB13235E5BD900917EA9 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		4C39BB15235E5DE000917EA9 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		4C39BB18235E5DEE00917EA9 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		4C39BB1A235E5F2A00917EA9 /* DetailTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTaskViewModel.swift; sourceTree = "<group>"; };
+		4C39BB1D235E5F6200917EA9 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 		4C39BB05235E478C00917EA9 /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
+				4C39BB1C235E5F5900917EA9 /* Model */,
 				4C39BB12235E5BC500917EA9 /* AddTask */,
 				4C39BB0C235E599300917EA9 /* DetailTask */,
 				4C39BB06235E4EAB00917EA9 /* Cells */,
@@ -136,6 +141,7 @@
 			children = (
 				4C39BB17235E5DE300917EA9 /* Cells */,
 				4C39BB0D235E59A400917EA9 /* DetailTaskViewController.swift */,
+				4C39BB1A235E5F2A00917EA9 /* DetailTaskViewModel.swift */,
 			);
 			path = DetailTask;
 			sourceTree = "<group>";
@@ -163,6 +169,14 @@
 				4C39BB18235E5DEE00917EA9 /* CategoryCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		4C39BB1C235E5F5900917EA9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4C39BB1D235E5F6200917EA9 /* Task.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +253,8 @@
 				4C39BB14235E5BD900917EA9 /* AddTaskViewController.swift in Sources */,
 				4C39BB16235E5DE000917EA9 /* DetailCell.swift in Sources */,
 				4C39BB04235E478500917EA9 /* TasksViewController.swift in Sources */,
+				4C39BB1E235E5F6200917EA9 /* Task.swift in Sources */,
+				4C39BB1B235E5F2A00917EA9 /* DetailTaskViewModel.swift in Sources */,
 				4C39BB11235E5A8E00917EA9 /* SettingsViewController.swift in Sources */,
 				4C39BAED235E467D00917EA9 /* AppDelegate.swift in Sources */,
 				4C39BAEF235E467D00917EA9 /* SceneDelegate.swift in Sources */,
