@@ -8,13 +8,27 @@
 
 import Foundation
 
-enum DetailSection {
-    case general
-    case category
-}
-
 class DetailTaskViewModel {
     
+    var numberOfRows: Int {
+        return items.count
+    }
     
+    private var items: [DetailItemProtocol] = []
+    private let task: Task
+    
+    init(task: Task) {
+        self.task = task
+        setupItems()
+    }
+    
+    func sectionForHeader(index: Int) -> String {
+        return items[index].sectionTitle
+    }
+    
+    private func setupItems() {
+        items.append(DetailItem(section: .general, task: task))
+        items.append(DetailItem(section: .category, task: task))
+    }
     
 }

@@ -57,8 +57,9 @@ class TasksViewController: UIViewController {
         present(settingsViewController, animated: true, completion: nil)
     }
     
-    private func showDetailTask() {
-        let detailTaskViewController = DetailTaskViewController()
+    private func showDetailTask(indexPath: IndexPath) {
+        let detailViewModel = DetailTaskViewModel(task: Task(name: "", expirationDate: ""))
+        let detailTaskViewController = DetailTaskViewController(withViewModel: detailViewModel)
         navigationController?.pushViewController(detailTaskViewController, animated: true)
     }
     
@@ -72,7 +73,7 @@ extension TasksViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        showDetailTask()
+        showDetailTask(indexPath: indexPath)
     }
     
 }

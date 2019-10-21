@@ -21,6 +21,7 @@
 		4C39BB19235E5DEE00917EA9 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB18235E5DEE00917EA9 /* CategoryCell.swift */; };
 		4C39BB1B235E5F2A00917EA9 /* DetailTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB1A235E5F2A00917EA9 /* DetailTaskViewModel.swift */; };
 		4C39BB1E235E5F6200917EA9 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB1D235E5F6200917EA9 /* Task.swift */; };
+		4C39BB20235E63CB00917EA9 /* DetailItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB1F235E63CB00917EA9 /* DetailItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		4C39BB18235E5DEE00917EA9 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		4C39BB1A235E5F2A00917EA9 /* DetailTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTaskViewModel.swift; sourceTree = "<group>"; };
 		4C39BB1D235E5F6200917EA9 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		4C39BB1F235E63CB00917EA9 /* DetailItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				4C39BB17235E5DE300917EA9 /* Cells */,
 				4C39BB0D235E59A400917EA9 /* DetailTaskViewController.swift */,
 				4C39BB1A235E5F2A00917EA9 /* DetailTaskViewModel.swift */,
+				4C39BB1F235E63CB00917EA9 /* DetailItem.swift */,
 			);
 			path = DetailTask;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C39BB08235E4ECA00917EA9 /* TaskCell.swift in Sources */,
+				4C39BB20235E63CB00917EA9 /* DetailItem.swift in Sources */,
 				4C39BB14235E5BD900917EA9 /* AddTaskViewController.swift in Sources */,
 				4C39BB16235E5DE000917EA9 /* DetailCell.swift in Sources */,
 				4C39BB04235E478500917EA9 /* TasksViewController.swift in Sources */,
