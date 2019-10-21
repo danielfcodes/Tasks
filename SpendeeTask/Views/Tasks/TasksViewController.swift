@@ -47,12 +47,14 @@ class TasksViewController: UIViewController {
     
     @objc
     private func addTaskPressed() {
-        
+        let detailTaskViewController = DetailTaskViewController()
+        navigationController?.pushViewController(detailTaskViewController, animated: true)
     }
     
     @objc
     private func showSettingsPressed() {
-        
+        let settingsViewController = SettingsViewController()
+        present(settingsViewController, animated: true, completion: nil)
     }
     
 }

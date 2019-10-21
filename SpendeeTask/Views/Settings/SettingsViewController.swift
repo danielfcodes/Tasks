@@ -1,5 +1,5 @@
 //
-//  DetailTaskViewController.swift
+//  SettingsViewController.swift
 //  SpendeeTask
 //
 //  Created by Daniel Fernandez on 10/21/19.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class DetailTaskViewController: UIViewController {
+class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
-        title = "Detail"
+        view.backgroundColor = .purple
+        title = "Settings"
     }
     
 }
