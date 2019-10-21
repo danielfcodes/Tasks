@@ -47,14 +47,19 @@ class TasksViewController: UIViewController {
     
     @objc
     private func addTaskPressed() {
-        let detailTaskViewController = DetailTaskViewController()
-        navigationController?.pushViewController(detailTaskViewController, animated: true)
+        let addTaskViewController = AddTaskViewController()
+        navigationController?.pushViewController(addTaskViewController, animated: true)
     }
     
     @objc
     private func showSettingsPressed() {
         let settingsViewController = SettingsViewController()
         present(settingsViewController, animated: true, completion: nil)
+    }
+    
+    private func showDetailTask() {
+        let detailTaskViewController = DetailTaskViewController()
+        navigationController?.pushViewController(detailTaskViewController, animated: true)
     }
     
 }
@@ -67,6 +72,7 @@ extension TasksViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        showDetailTask()
     }
     
 }
