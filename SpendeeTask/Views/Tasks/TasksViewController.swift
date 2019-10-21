@@ -28,6 +28,7 @@ class TasksViewController: UIViewController {
         view.backgroundColor = .white
         title = "Tasks"
         setupTableView()
+        addBarButtons()
     }
     
     private func setupTableView() {
@@ -36,6 +37,22 @@ class TasksViewController: UIViewController {
         tableView.snp.makeConstraints { make in
             make.top.left.bottom.right.equalToSuperview()
         }
+    }
+    
+    private func addBarButtons() {
+        let addTaskButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTaskPressed))
+        let settingsButton = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(showSettingsPressed))
+        navigationItem.rightBarButtonItems = [addTaskButton, settingsButton]
+    }
+    
+    @objc
+    private func addTaskPressed() {
+        
+    }
+    
+    @objc
+    private func showSettingsPressed() {
+        
     }
     
 }
