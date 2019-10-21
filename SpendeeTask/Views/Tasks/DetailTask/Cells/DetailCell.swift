@@ -51,18 +51,18 @@ class DetailCell: UITableViewCell, CellProtocol {
         addSubview(doneButton)
         
         nameTextField.snp.makeConstraints { make in
-            make.top.equalTo(self).offset(24)
-            make.left.equalTo(self).offset(24)
+            make.top.equalToSuperview().offset(24)
+            make.left.equalToSuperview().offset(24)
         }
         
         dateTextField.snp.makeConstraints { make in
             make.top.equalTo(nameTextField.snp.bottom).offset(16)
-            make.left.equalTo(self).offset(24)
+            make.left.equalToSuperview().offset(24)
         }
         
         doneButton.snp.makeConstraints { make in
             make.top.equalTo(dateTextField.snp.bottom).offset(24)
-            make.right.equalTo(self).offset(-24)
+            make.right.equalToSuperview().offset(-24)
             make.height.equalTo(34)
             make.width.equalTo(100)
         }

@@ -39,13 +39,13 @@ class CategoryCell: UITableViewCell, CellProtocol {
         addSubview(categoryColorView)
         
         nameLabel.snp.makeConstraints { make in
-            make.top.equalTo(self).offset(24)
-            make.left.equalTo(self).offset(24)
+            make.top.equalToSuperview().offset(24)
+            make.left.equalToSuperview().offset(24)
         }
         
         categoryColorView.snp.makeConstraints { make in
-            make.top.equalTo(self).offset(24)
-            make.right.equalTo(self).offset(-24)
+            make.top.equalToSuperview().offset(24)
+            make.right.equalToSuperview().offset(-24)
             make.width.equalTo(60)
             make.height.equalTo(15)
         }

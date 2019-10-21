@@ -18,7 +18,7 @@ class TaskCell: UITableViewCell, CellProtocol {
         return label
     }()
     
-    private let dateLabel: UILabel = {
+    private let expirationDateLabel: UILabel = {
         let label = UILabel()
         label.text = "Exp: 07/10/2019"
         label.textColor = .systemGray
@@ -53,30 +53,30 @@ class TaskCell: UITableViewCell, CellProtocol {
     
     private func setupViews() {
         addSubview(nameLabel)
-        addSubview(dateLabel)
+        addSubview(expirationDateLabel)
         addSubview(categoryView)
         addSubview(doneButton)
         
         nameLabel.snp.makeConstraints { make in
-            make.top.equalTo(self).offset(24)
-            make.left.equalTo(self).offset(24)
+            make.top.equalToSuperview().offset(24)
+            make.left.equalToSuperview().offset(24)
         }
         
-        dateLabel.snp.makeConstraints { make in
+        expirationDateLabel.snp.makeConstraints { make in
             make.top.equalTo(nameLabel.snp.bottom).offset(16)
-            make.left.equalTo(self).offset(24)
+            make.left.equalToSuperview().offset(24)
         }
         
         categoryView.snp.makeConstraints { make in
-            make.top.equalTo(self).offset(24)
-            make.right.equalTo(self).offset(-24)
+            make.top.equalToSuperview().offset(24)
+            make.right.equalToSuperview().offset(-24)
             make.width.equalTo(60)
             make.height.equalTo(15)
         }
         
         doneButton.snp.makeConstraints { make in
             make.top.equalTo(categoryView.snp.bottom).offset(24)
-            make.right.equalTo(self).offset(-24)
+            make.right.equalToSuperview().offset(-24)
             make.height.equalTo(34)
             make.width.equalTo(100)
         }
