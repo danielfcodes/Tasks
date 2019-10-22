@@ -12,11 +12,5 @@ struct Task {
     var name: String
     var expirationDate: String
     var isDone: Bool = false
-    var category: TaskCategory = .normal
-    
-    enum TaskCategory {
-        case important
-        case normal
-        case trivial
-    }
+    var category: Category
 }

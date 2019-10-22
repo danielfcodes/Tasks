@@ -47,7 +47,8 @@ class TasksViewController: UIViewController {
     
     @objc
     private func addTaskPressed() {
-        let addTaskViewController = AddTaskViewController()
+        let addTaskViewModel = AddTaskViewModel()
+        let addTaskViewController = AddTaskViewController(viewModel: addTaskViewModel)
         navigationController?.pushViewController(addTaskViewController, animated: true)
     }
     
@@ -60,7 +61,7 @@ class TasksViewController: UIViewController {
     }
     
     private func showDetailTask(indexPath: IndexPath) {
-        let detailViewModel = DetailTaskViewModel(task: Task(name: "", expirationDate: ""))
+        let detailViewModel = DetailTaskViewModel(task: Task(name: "", expirationDate: "", category: Category(name: "", color: "#FFFFFF")))
         let detailTaskViewController = DetailTaskViewController(withViewModel: detailViewModel)
         navigationController?.pushViewController(detailTaskViewController, animated: true)
     }

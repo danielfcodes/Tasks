@@ -68,6 +68,7 @@ class AddTaskViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 8
+        button.addTarget(self, action: #selector(changeCategoryPressed), for: .touchUpInside)
         return button
     }()
     
@@ -80,9 +81,21 @@ class AddTaskViewController: UIViewController {
         return button
     }()
     
+    private let viewModel: AddTaskViewModel
+    
+    init(viewModel: AddTaskViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        makeBindings()
     }
     
     private func initialSetup() {
@@ -128,6 +141,28 @@ class AddTaskViewController: UIViewController {
             make.left.equalToSuperview().offset(24)
             make.right.equalToSuperview().offset(-24)
         }
+    }
+    
+    private func makeBindings() {
+        viewModel.categoryDidUpdate = { [weak self] in
+            self?.categoryValueLabel.text = self?.viewModel.category?.name
+        }
+    }
+    
+    @objc
+    private func changeCategoryPressed() {
+        let changeCategoryViewController = ChangeCategoryViewController()
+        changeCategoryViewController.delegate = self
+        let navigationController = CustomNavigationController(rootViewController: changeCategoryViewController)
+        present(navigationController, animated: true, completion: nil)
+    }
+    
+}
+
+extension AddTaskViewController: ChangeCategoryViewControllerDelegate {
+    
+    func changeCategoryViewControllerDelegate(didSelectCategory category: Category) {
+        viewModel.setCategory(category)
     }
     
 }
