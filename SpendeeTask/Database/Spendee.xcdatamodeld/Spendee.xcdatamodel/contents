@@ -5,7 +5,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="moTask" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MOTask" inverseName="moCategory" inverseEntity="MOTask"/>
     </entity>
-    <entity name="MOTask" representedClassName="MOTask" syncable="YES" codeGenerationType="class">
+    <entity name="MOTask" representedClassName="MOTask" syncable="YES">
         <attribute name="expirationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="moCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MOCategory" inverseName="moTask" inverseEntity="MOCategory"/>

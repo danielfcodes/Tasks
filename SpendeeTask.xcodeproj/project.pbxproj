@@ -17,6 +17,8 @@
 		0F7CF703235F0E61001B3A84 /* CategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7CF702235F0E61001B3A84 /* CategoryCellViewModel.swift */; };
 		0F7CF706235F2604001B3A84 /* ChangeCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7CF705235F2604001B3A84 /* ChangeCategoryViewController.swift */; };
 		0F7CF708235F271B001B3A84 /* AddTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7CF707235F271B001B3A84 /* AddTaskViewModel.swift */; };
+		0F7CF70E235F349F001B3A84 /* MOTask+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7CF70C235F349F001B3A84 /* MOTask+CoreDataClass.swift */; };
+		0F7CF70F235F349F001B3A84 /* MOTask+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7CF70D235F349F001B3A84 /* MOTask+CoreDataProperties.swift */; };
 		4C39BAED235E467D00917EA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BAEC235E467D00917EA9 /* AppDelegate.swift */; };
 		4C39BAEF235E467D00917EA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BAEE235E467D00917EA9 /* SceneDelegate.swift */; };
 		4C39BAF6235E468100917EA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C39BAF5235E468100917EA9 /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 		0F7CF702235F0E61001B3A84 /* CategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellViewModel.swift; sourceTree = "<group>"; };
 		0F7CF705235F2604001B3A84 /* ChangeCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCategoryViewController.swift; sourceTree = "<group>"; };
 		0F7CF707235F271B001B3A84 /* AddTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewModel.swift; sourceTree = "<group>"; };
+		0F7CF70C235F349F001B3A84 /* MOTask+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MOTask+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0F7CF70D235F349F001B3A84 /* MOTask+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MOTask+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4C39BAE9235E467D00917EA9 /* SpendeeTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpendeeTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C39BAEC235E467D00917EA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C39BAEE235E467D00917EA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -242,6 +246,8 @@
 		4C39BB1C235E5F5900917EA9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0F7CF70C235F349F001B3A84 /* MOTask+CoreDataClass.swift */,
+				0F7CF70D235F349F001B3A84 /* MOTask+CoreDataProperties.swift */,
 				4C39BB1D235E5F6200917EA9 /* Task.swift */,
 			);
 			path = Models;
@@ -387,10 +393,12 @@
 				4C39BB2D235E74E600917EA9 /* UIViewControllerExtensions.swift in Sources */,
 				0F7CF706235F2604001B3A84 /* ChangeCategoryViewController.swift in Sources */,
 				4C39BB20235E63CB00917EA9 /* DetailItem.swift in Sources */,
+				0F7CF70F235F349F001B3A84 /* MOTask+CoreDataProperties.swift in Sources */,
 				0F3B0C3D235F030100A42903 /* CategoryDataSource.swift in Sources */,
 				0F7CF703235F0E61001B3A84 /* CategoryCellViewModel.swift in Sources */,
 				4C39BB14235E5BD900917EA9 /* AddTaskViewController.swift in Sources */,
 				4C39BB16235E5DE000917EA9 /* DetailCell.swift in Sources */,
+				0F7CF70E235F349F001B3A84 /* MOTask+CoreDataClass.swift in Sources */,
 				4C39BB04235E478500917EA9 /* TasksViewController.swift in Sources */,
 				4C39BB31235E781500917EA9 /* CoreDataManager.swift in Sources */,
 				4C39BB1E235E5F6200917EA9 /* Task.swift in Sources */,

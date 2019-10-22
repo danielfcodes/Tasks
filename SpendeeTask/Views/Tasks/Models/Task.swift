@@ -13,4 +13,6 @@ struct Task {
     var expirationDate: String
     var isDone: Bool = false
     var category: Category
+    
+    
 }

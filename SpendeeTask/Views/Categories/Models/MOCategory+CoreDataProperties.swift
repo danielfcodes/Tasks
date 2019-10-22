@@ -17,5 +17,6 @@ extension MOCategory {
 
     @NSManaged public var color: String?
     @NSManaged public var name: String?
+    @NSManaged public var moTask: MOTask?
 
 }
