@@ -26,10 +26,32 @@ class TaskCellViewModel {
         return task.category.color
     }
     
-    private let task: Task
+    var taskDidSetToDone: (() -> Void)?
     
-    init(task: Task) {
+    private let task: Task
+    private let taskDataSource: TaskDataSourceProtocol
+    
+    init(task: Task, taskDataSource: TaskDataSourceProtocol = TaskDataSource()) {
         self.task = task
+        self.taskDataSource = taskDataSource
+    }
+    
+    func setTaskToDone() {
+        task.isDone = true
+        taskDataSource.setTaskToDone(withName: task.name) { result in
+            switch result {
+            case .success:
+                self.taskDidSetToDone?()
+            case .failure(let error): print("Error when setting to done \(error.localizedDescription)")
+            }
+        }
     }
     
 }
+
+/* TODO:
+- Keyboards se van con tap
+ - pasar el getMO Model al data source en lugar de hacer un get en el view model
+ - Poner en la main queue todos los bindings que actualicen vista
+ - DateFormatter para las celdas
+ */

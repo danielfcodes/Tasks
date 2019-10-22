@@ -14,6 +14,7 @@ protocol TaskDataSourceProtocol {
     func updateTask(moTask: MOTask, task: Task, completion: @escaping (Result<EmptyObject, Error>) -> Void)
     func getTasks(completion: @escaping (Result<[Task], Error>) -> Void)
     func getTask(withName name: String, completion: @escaping (Result<MOTask, Error>) -> Void)
+    func setTaskToDone(withName name: String, completion: @escaping (Result<EmptyObject, Error>) -> Void)
 }
 
 class TaskDataSource: TaskDataSourceProtocol {
@@ -65,7 +66,6 @@ class TaskDataSource: TaskDataSourceProtocol {
                 } catch let error {
                     completion(.failure(error))
                 }
-                
             case .failure(let error): completion(.failure(error))
             }
         }
@@ -98,6 +98,23 @@ class TaskDataSource: TaskDataSourceProtocol {
             completion(.success(moTask))
         } catch let error {
             completion(.failure(error))
+        }
+    }
+    
+    func setTaskToDone(withName name: String, completion: @escaping (Result<EmptyObject, Error>) -> Void) {
+        let context = CoreDataManager.shared.viewContext
+        getTask(withName: name) { result in
+            switch result {
+            case .success(let moTask):
+                moTask.isDone = true
+                do {
+                    try context.save()
+                    completion(.success(EmptyObject()))
+                } catch let error {
+                    completion(.failure(error))
+                }
+            case .failure(let error): completion(.failure(error))
+            }
         }
     }
     

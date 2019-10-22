@@ -20,7 +20,6 @@ class Task {
         self.expirationDate = ""
         self.isDone = moTask.isDone
         self.category = Category(moCategory: moCategory)
-        
     }
     
     init(name: String, expirationDate: String, isDone: Bool, category: Category) {

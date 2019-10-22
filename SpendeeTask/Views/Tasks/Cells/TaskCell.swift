@@ -13,20 +13,19 @@ class TaskCell: UITableViewCell {
     
     var viewModel: TaskCellViewModel? {
         didSet {
+            makeBindings()
             fillUI()
         }
     }
     
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Save passport"
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         return label
     }()
     
     private let expirationDateLabel: UILabel = {
         let label = UILabel()
-        label.text = "Exp: 07/10/2019"
         label.textColor = .systemGray
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         return label
@@ -39,12 +38,13 @@ class TaskCell: UITableViewCell {
         return view
     }()
     
-    private let doneButton: UIButton = {
+    private lazy var doneButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Done", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 8
+        button.addTarget(self, action: #selector(doneButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -93,6 +93,19 @@ class TaskCell: UITableViewCell {
         expirationDateLabel.text = viewModel?.expirationDate
         categoryView.backgroundColor = UIColor(hexString: viewModel?.categoryColor ?? "")
         doneButton.isHidden = viewModel?.isDone ?? true
+    }
+    
+    private func makeBindings() {
+        viewModel?.taskDidSetToDone = { [weak self] in
+            DispatchQueue.main.async {
+                self?.fillUI()
+            }
+        }
+    }
+    
+    @objc
+    private func doneButtonPressed() {
+        viewModel?.setTaskToDone()
     }
     
 }
