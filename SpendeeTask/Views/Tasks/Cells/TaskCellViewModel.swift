@@ -55,4 +55,5 @@ class TaskCellViewModel {
  - Poner en la main queue todos los bindings que actualicen vista
  - DateFormatter para las celdas
  - TaskItem dentro de TASKS folder
+ - Cambiar el estilo del DONE BUTTON cuando este en DONE
  */

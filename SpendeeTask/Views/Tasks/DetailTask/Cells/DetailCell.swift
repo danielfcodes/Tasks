@@ -13,6 +13,7 @@ class DetailCell: UITableViewCell {
     
     var viewModel: DetailCellViewModel? {
         didSet {
+            makeBindings()
             fillUI()
         }
     }
@@ -31,11 +32,12 @@ class DetailCell: UITableViewCell {
         return textField
     }()
     
-    private let doneButton: UIButton = {
+    private lazy var doneButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Done", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = ColorPalette.secondaryColor
+        button.addTarget(self, action: #selector(doneButtonPressed), for: .touchUpInside)
         button.layer.cornerRadius = 8
         return button
     }()
@@ -79,9 +81,22 @@ class DetailCell: UITableViewCell {
         doneButton.isHidden = viewModel?.isDone ?? true
     }
     
+    private func makeBindings() {
+        viewModel?.taskDidSetToDone = { [weak self] in
+            DispatchQueue.main.async {
+                self?.fillUI()
+            }
+        }
+    }
+    
     @objc
     private func nameTextFieldChanged() {
         viewModel?.setName(nameTextField.text ?? "")
+    }
+    
+    @objc
+    private func doneButtonPressed() {
+        viewModel?.setTaskToDone()
     }
     
 }

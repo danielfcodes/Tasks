@@ -22,14 +22,29 @@ class DetailCellViewModel {
         return task.isDone
     }
     
-    private let task: Task
+    var taskDidSetToDone: (() -> Void)?
     
-    init(task: Task) {
+    private let task: Task
+    private let taskDataSource: TaskDataSourceProtocol
+    
+    init(task: Task, taskDataSource: TaskDataSourceProtocol = TaskDataSource()) {
         self.task = task
+        self.taskDataSource = taskDataSource
     }
     
     func setName(_ name: String) {
         task.name = name
+    }
+    
+    func setTaskToDone() {
+        task.isDone = true
+        taskDataSource.setTaskToDone(withName: task.name) { result in
+            switch result {
+            case .success:
+                self.taskDidSetToDone?()
+            case .failure(let error): print("Error when setting to done \(error.localizedDescription)")
+            }
+        }
     }
     
 }
