@@ -14,6 +14,7 @@ class SettingsViewController: UIViewController {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = .systemGray6
         return tableView
     }()
     
@@ -23,7 +24,7 @@ class SettingsViewController: UIViewController {
     }
     
     private func initialSetup() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray6
         title = "Settings"
         setupTableView()
         addBarButtons()
@@ -74,6 +75,7 @@ extension SettingsViewController: UITableViewDataSource {
     // TODO: Make a specific cell that can be reuse in this view
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        cell.backgroundColor = .systemGray6
         cell.textLabel?.text = "Categories"
         cell.accessoryType = .disclosureIndicator
         return cell

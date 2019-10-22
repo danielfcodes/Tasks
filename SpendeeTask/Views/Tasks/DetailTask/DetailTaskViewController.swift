@@ -15,6 +15,7 @@ class DetailTaskViewController: ToggleKeyboardViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.keyboardDismissMode = .onDrag
+        tableView.backgroundColor = .systemGray6
         tableView.register(DetailCell.self, forCellReuseIdentifier: DetailCell.identifier)
         tableView.register(CategoryCell.self, forCellReuseIdentifier: CategoryCell.identifier)
         return tableView

@@ -15,6 +15,7 @@ class TasksViewController: UIViewController {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = .systemGray6
         tableView.register(TaskCell.self, forCellReuseIdentifier: TaskCell.identifier)
         return tableView
     }()

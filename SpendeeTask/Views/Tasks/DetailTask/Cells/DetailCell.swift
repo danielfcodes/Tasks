@@ -62,6 +62,7 @@ class DetailCell: UITableViewCell, StackCreator {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
         setupDatePicker()
+        backgroundColor = .systemGray6
         selectionStyle = .none
     }
     
@@ -121,7 +122,7 @@ class DetailCell: UITableViewCell, StackCreator {
     private func setupDoneButtonWhenDisable() {
         doneButton.layer.borderColor = ColorPalette.secondaryColor.cgColor
         doneButton.layer.borderWidth = 1
-        doneButton.backgroundColor = .white
+        doneButton.backgroundColor = .systemGray6
         doneButton.setTitleColor(ColorPalette.secondaryColor, for: .disabled)
     }
     

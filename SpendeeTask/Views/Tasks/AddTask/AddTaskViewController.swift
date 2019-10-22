@@ -108,7 +108,7 @@ class AddTaskViewController: ToggleKeyboardViewController, StackCreator {
     }
     
     private func initialSetup() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray6
         title = "Add a Task"
         setupViews()
     }

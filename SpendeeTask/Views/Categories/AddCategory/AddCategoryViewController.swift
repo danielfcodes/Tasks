@@ -74,7 +74,7 @@ class AddCategoryViewController: ToggleKeyboardViewController, StackCreator {
     }
     
     private func initialSetup() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray6
         title = viewModel.title
         setupViews()
         
