@@ -14,6 +14,10 @@ class DetailTaskViewModel {
         return items.count
     }
     
+    var isDone: Bool {
+        return task.isDone
+    }
+    
     var categorySaved: (() -> Void)?
     var categoryDidUpdate: (() -> Void)?
     

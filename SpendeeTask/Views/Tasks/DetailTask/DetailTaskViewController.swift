@@ -53,7 +53,9 @@ class DetailTaskViewController: ToggleKeyboardViewController {
     }
     
     private func addBarButtons() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(updateTask))
+        if !viewModel.isDone {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(updateTask))
+        }
     }
     
     private func makeBindings() {
@@ -99,7 +101,10 @@ extension DetailTaskViewController: UITableViewDelegate {
         let sectionType = viewModel.sectionForHeader(index: indexPath.section)
         switch sectionType {
         case .general: return
-        case .category: showChangeCategory()
+        case .category:
+            if !viewModel.isDone {
+                showChangeCategory()
+            }
         }
     }
     

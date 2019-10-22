@@ -97,9 +97,16 @@ class DetailCell: UITableViewCell, StackCreator {
     }
     
     private func fillUI() {
+        guard viewModel != nil else { return }
         nameTextField.text = viewModel?.name
         dateTextField.text = viewModel?.expirationDate
-        doneButton.isHidden = viewModel?.isDone ?? true
+        nameTextField.isEnabled = !viewModel!.isDone
+        dateTextField.isEnabled = !viewModel!.isDone
+        
+        if viewModel!.isDone {
+            doneButton.isEnabled = false
+            setupDoneButtonWhenDisable()
+        }
     }
     
     private func makeBindings() {
@@ -108,6 +115,14 @@ class DetailCell: UITableViewCell, StackCreator {
                 self?.fillUI()
             }
         }
+    }
+    
+    // TODO: Could be a customButton with this logic inside
+    private func setupDoneButtonWhenDisable() {
+        doneButton.layer.borderColor = ColorPalette.secondaryColor.cgColor
+        doneButton.layer.borderWidth = 1
+        doneButton.backgroundColor = .white
+        doneButton.setTitleColor(ColorPalette.secondaryColor, for: .disabled)
     }
     
     @objc
