@@ -35,12 +35,10 @@ class AddCategoryViewModel {
     }
     
     func saveCategory(name: String, colorHex: String) {
-        let category = Category(name: name, color: colorHex)
-        categoryDataSource.saveCategory(category) { result in
-            switch result {
-            case .success: self.categorySaved?()
-            case .failure(let error): print("Error when saving... \(error.localizedDescription)")
-            }
+        if category != nil {
+            updateCategoryInDB(name: name, colorHex: colorHex)
+        } else {
+            saveCategoryInDB(name: name, colorHex: colorHex)
         }
     }
     
@@ -52,6 +50,27 @@ class AddCategoryViewModel {
                 self.moCategory = moCategory
                 self.categoryDidLoad?()
             case .failure(let error): print("Error when fetching specific category \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    private func saveCategoryInDB(name: String, colorHex: String) {
+        let category = Category(name: name, color: colorHex)
+        categoryDataSource.saveCategory(category) { result in
+            switch result {
+            case .success: self.categorySaved?()
+            case .failure(let error): print("Error when saving... \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    private func updateCategoryInDB(name: String, colorHex: String) {
+        moCategory?.name = name
+        moCategory?.color = colorHex
+        categoryDataSource.updateCategory { result in
+            switch result {
+            case .success: self.categorySaved?()
+            case .failure(let error): print("Error when saving... \(error.localizedDescription)")
             }
         }
     }

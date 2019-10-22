@@ -12,6 +12,7 @@ struct EmptyObject {}
 
 protocol CategoryDataSourceProtocol {
     func saveCategory(_ category: Category, completion: @escaping (Result<EmptyObject, Error>) -> Void)
+    func updateCategory(completion: @escaping (Result<EmptyObject, Error>) -> Void)
     func getCategories(completion: @escaping (Result<[Category], Error>) -> Void)
     func getCategory(withName name: String, completion: @escaping (Result<MOCategory, Error>) -> Void)
 }
@@ -23,6 +24,17 @@ class CategoryDataSource: CategoryDataSourceProtocol {
         let moCategory = MOCategory(context: context)
         moCategory.name = category.name
         moCategory.color = category.color
+        
+        do {
+            try context.save()
+            completion(.success(EmptyObject()))
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
+    
+    func updateCategory(completion: @escaping (Result<EmptyObject, Error>) -> Void) {
+        let context = CoreDataManager.shared.viewContext
         
         do {
             try context.save()
