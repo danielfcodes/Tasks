@@ -92,8 +92,8 @@
 				4C39BB2B235E74D900917EA9 /* Extensions */,
 				4C39BB09235E4EF800917EA9 /* Protocols */,
 				4C39BB01235E46C200917EA9 /* Resources */,
-				4C39BB00235E469D00917EA9 /* SupportingFiles */,
 				4C39BB02235E473200917EA9 /* Views */,
+				4C39BB00235E469D00917EA9 /* SupportingFiles */,
 			);
 			path = SpendeeTask;
 			sourceTree = "<group>";

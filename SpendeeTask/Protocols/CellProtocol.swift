@@ -19,3 +19,14 @@ extension CellProtocol where Self: UITableViewCell {
     }
     
 }
+
+extension CellProtocol where Self: UICollectionViewCell {
+    
+    static var identifier: String {
+        return String(describing: self)
+    }
+    
+}
+
+extension UITableViewCell: CellProtocol {}
+extension UICollectionViewCell: CellProtocol {}

@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class DetailCell: UITableViewCell, CellProtocol {
+class DetailCell: UITableViewCell {
     
     private let nameTextField: UITextField = {
         let textField = UITextField()

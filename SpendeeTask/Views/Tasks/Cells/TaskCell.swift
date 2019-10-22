@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class TaskCell: UITableViewCell, CellProtocol {
+class TaskCell: UITableViewCell {
     
     private let nameLabel: UILabel = {
         let label = UILabel()

@@ -39,7 +39,7 @@ class AddCategoryViewController: UIViewController {
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: UICollectionViewCell.identifier)
         collectionView.backgroundColor = .clear
         return collectionView
     }()
@@ -84,13 +84,17 @@ class AddCategoryViewController: UIViewController {
         }
     }
     
+    private func changeColorView(withColor color: UIColor) {
+        colorView.backgroundColor = color
+    }
+    
 }
 
-extension AddCategoryViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension AddCategoryViewController: UICollectionViewDelegate {
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: 50, height: 50)
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        changeColorView(withColor: colors[indexPath.item])
+    }
     
 }
 
@@ -101,7 +105,7 @@ extension AddCategoryViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UICollectionViewCell.identifier, for: indexPath)
         cell.backgroundColor = colors[indexPath.item]
         return cell
     }
