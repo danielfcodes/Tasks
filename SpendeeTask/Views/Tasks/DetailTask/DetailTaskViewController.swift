@@ -8,12 +8,13 @@
 
 import UIKit
 
-class DetailTaskViewController: UIViewController {
+class DetailTaskViewController: ToggleKeyboardViewController {
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.keyboardDismissMode = .onDrag
         tableView.register(DetailCell.self, forCellReuseIdentifier: DetailCell.identifier)
         tableView.register(CategoryCell.self, forCellReuseIdentifier: CategoryCell.identifier)
         return tableView

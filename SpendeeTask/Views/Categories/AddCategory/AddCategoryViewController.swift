@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class AddCategoryViewController: UIViewController, StackCreator {
+class AddCategoryViewController: ToggleKeyboardViewController, StackCreator {
     
     private let nameLabel: UILabel = {
         let label = UILabel()

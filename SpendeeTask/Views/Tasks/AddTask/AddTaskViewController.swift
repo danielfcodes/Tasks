@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddTaskViewController: UIViewController, StackCreator {
+class AddTaskViewController: ToggleKeyboardViewController, StackCreator {
     
     private let introductionLabel: UILabel = {
         let label = UILabel()

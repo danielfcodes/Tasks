@@ -49,6 +49,7 @@
 		4C39BB3C235F874C00917EA9 /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB3B235F874C00917EA9 /* TaskItem.swift */; };
 		4C39BB3E235F9F6B00917EA9 /* DateFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB3D235F9F6B00917EA9 /* DateFormatterExtensions.swift */; };
 		4C39BB40235FA67500917EA9 /* StackCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB3F235FA67500917EA9 /* StackCreator.swift */; };
+		4C39BB46235FA8EB00917EA9 /* ToggleKeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB45235FA8EB00917EA9 /* ToggleKeyboardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		4C39BB3B235F874C00917EA9 /* TaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
 		4C39BB3D235F9F6B00917EA9 /* DateFormatterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtensions.swift; sourceTree = "<group>"; };
 		4C39BB3F235FA67500917EA9 /* StackCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCreator.swift; sourceTree = "<group>"; };
+		4C39BB45235FA8EB00917EA9 /* ToggleKeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleKeyboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 			children = (
 				4C39BB38235F7FBC00917EA9 /* ColorPalette */,
 				4C39BB2E235E76FA00917EA9 /* Database */,
+				4C39BB44235FA8DC00917EA9 /* Helpers */,
 				4C39BB2B235E74D900917EA9 /* Extensions */,
 				4C39BB09235E4EF800917EA9 /* Protocols */,
 				4C39BB01235E46C200917EA9 /* Resources */,
@@ -359,6 +362,14 @@
 			path = ColorPalette;
 			sourceTree = "<group>";
 		};
+		4C39BB44235FA8DC00917EA9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4C39BB45235FA8EB00917EA9 /* ToggleKeyboardViewController.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -440,6 +451,7 @@
 				4C39BB14235E5BD900917EA9 /* AddTaskViewController.swift in Sources */,
 				4C39BB16235E5DE000917EA9 /* DetailCell.swift in Sources */,
 				0F7CF70E235F349F001B3A84 /* MOTask+CoreDataClass.swift in Sources */,
+				4C39BB46235FA8EB00917EA9 /* ToggleKeyboardViewController.swift in Sources */,
 				4C39BB40235FA67500917EA9 /* StackCreator.swift in Sources */,
 				4C39BB04235E478500917EA9 /* TasksViewController.swift in Sources */,
 				4C39BB31235E781500917EA9 /* CoreDataManager.swift in Sources */,
