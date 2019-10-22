@@ -13,7 +13,6 @@ class CategoryCell: UITableViewCell {
     
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Important"
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         return label
     }()
@@ -24,6 +23,12 @@ class CategoryCell: UITableViewCell {
         view.layer.cornerRadius = 8
         return view
     }()
+    
+    var viewModel: CategoryCellViewModel? {
+        didSet {
+            fillUI()
+        }
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -49,6 +54,11 @@ class CategoryCell: UITableViewCell {
             make.width.equalTo(60)
             make.height.equalTo(15)
         }
+    }
+    
+    private func fillUI() {
+        nameLabel.text = viewModel?.name
+        categoryColorView.backgroundColor = UIColor(hexString: viewModel?.color ?? "")
     }
     
 }

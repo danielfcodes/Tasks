@@ -11,7 +11,8 @@ import UIKit
 class SettingsCategoriesViewController: UIViewController {
     
     private lazy var categoriesChildController: CategoriesViewController = {
-        let child = CategoriesViewController()
+        let viewModel = CategoriesViewModel()
+        let child = CategoriesViewController(viewModel: viewModel)
         child.delegate = self
         return child
     }()

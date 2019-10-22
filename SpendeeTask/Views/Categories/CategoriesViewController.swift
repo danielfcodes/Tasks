@@ -25,9 +25,22 @@ class CategoriesViewController: UIViewController {
         return tableView
     }()
     
+    private let viewModel: CategoriesViewModel
+    
+    init(viewModel: CategoriesViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        makeBindings()
+        viewModel.getCategories()
     }
     
     private func initialSetup() {
@@ -40,6 +53,12 @@ class CategoriesViewController: UIViewController {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.top.left.bottom.right.equalToSuperview()
+        }
+    }
+    
+    private func makeBindings() {
+        viewModel.categoriesDidLoad = { [weak self] in
+            self?.tableView.reloadData()
         }
     }
     
@@ -61,11 +80,12 @@ extension CategoriesViewController: UITableViewDelegate {
 extension CategoriesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return viewModel.categories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.identifier, for: indexPath) as? CategoryCell else { return UITableViewCell() }
+        cell.viewModel = viewModel.getViewModel(at: indexPath)
         return cell
     }
     

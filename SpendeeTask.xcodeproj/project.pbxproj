@@ -13,6 +13,8 @@
 		0F3B0C3A235F027500A42903 /* MOCategory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B0C38235F027500A42903 /* MOCategory+CoreDataProperties.swift */; };
 		0F3B0C3D235F030100A42903 /* CategoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B0C3C235F030100A42903 /* CategoryDataSource.swift */; };
 		0F7CF6FF235F0988001B3A84 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7CF6FE235F0988001B3A84 /* UIColorExtensions.swift */; };
+		0F7CF701235F0D6D001B3A84 /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7CF700235F0D6D001B3A84 /* CategoriesViewModel.swift */; };
+		0F7CF703235F0E61001B3A84 /* CategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7CF702235F0E61001B3A84 /* CategoryCellViewModel.swift */; };
 		4C39BAED235E467D00917EA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BAEC235E467D00917EA9 /* AppDelegate.swift */; };
 		4C39BAEF235E467D00917EA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BAEE235E467D00917EA9 /* SceneDelegate.swift */; };
 		4C39BAF6235E468100917EA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C39BAF5235E468100917EA9 /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 		0F3B0C38235F027500A42903 /* MOCategory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MOCategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0F3B0C3C235F030100A42903 /* CategoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDataSource.swift; sourceTree = "<group>"; };
 		0F7CF6FE235F0988001B3A84 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		0F7CF700235F0D6D001B3A84 /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
+		0F7CF702235F0E61001B3A84 /* CategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellViewModel.swift; sourceTree = "<group>"; };
 		4C39BAE9235E467D00917EA9 /* SpendeeTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpendeeTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C39BAEC235E467D00917EA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C39BAEE235E467D00917EA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 				4C39BB35235E7BB400917EA9 /* AddCategory */,
 				4C39BB27235E72E900917EA9 /* Cells */,
 				4C39BB25235E70B500917EA9 /* CategoriesViewController.swift */,
+				0F7CF700235F0D6D001B3A84 /* CategoriesViewModel.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				4C39BB18235E5DEE00917EA9 /* CategoryCell.swift */,
+				0F7CF702235F0E61001B3A84 /* CategoryCellViewModel.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -367,6 +373,7 @@
 				4C39BB2D235E74E600917EA9 /* UIViewControllerExtensions.swift in Sources */,
 				4C39BB20235E63CB00917EA9 /* DetailItem.swift in Sources */,
 				0F3B0C3D235F030100A42903 /* CategoryDataSource.swift in Sources */,
+				0F7CF703235F0E61001B3A84 /* CategoryCellViewModel.swift in Sources */,
 				4C39BB14235E5BD900917EA9 /* AddTaskViewController.swift in Sources */,
 				4C39BB16235E5DE000917EA9 /* DetailCell.swift in Sources */,
 				4C39BB04235E478500917EA9 /* TasksViewController.swift in Sources */,
@@ -388,6 +395,7 @@
 				4C39BB0B235E4F0500917EA9 /* CellProtocol.swift in Sources */,
 				4C39BB19235E5DEE00917EA9 /* CategoryCell.swift in Sources */,
 				4C39BB26235E70B500917EA9 /* CategoriesViewController.swift in Sources */,
+				0F7CF701235F0D6D001B3A84 /* CategoriesViewModel.swift in Sources */,
 				0F3B0C36235F01B800A42903 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
