@@ -15,7 +15,7 @@ extension MOCategory {
         return NSFetchRequest<MOCategory>(entityName: "MOCategory")
     }
 
-    @NSManaged public var color: NSObject?
+    @NSManaged public var color: NSData?
     @NSManaged public var name: String?
 
 }

@@ -11,4 +11,9 @@ import UIKit
 struct Category {
     var name: String
     var color: UIColor
+    
+    init(moCategory: MOCategory) {
+        self.name = moCategory.name ?? ""
+        self.color = UIColor.color(data: moCategory.color! as Data) ?? .black
+    }
 }
