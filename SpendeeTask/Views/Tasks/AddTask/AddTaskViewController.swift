@@ -29,7 +29,7 @@ class AddTaskViewController: UIViewController {
     private let nameTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
-        textField.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        textField.font = UIFont.systemFont(ofSize: 16)
         return textField
     }()
     
@@ -40,11 +40,11 @@ class AddTaskViewController: UIViewController {
         return label
     }()
     
-    private let expirationDateButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("-", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        return button
+    private let expirationDateTextField: UITextField = {
+        let textField = UITextField()
+        textField.borderStyle = .roundedRect
+        textField.font = UIFont.systemFont(ofSize: 16)
+        return textField
     }()
     
     private let categoryLabel: UILabel = {
@@ -56,7 +56,7 @@ class AddTaskViewController: UIViewController {
     
     private let categoryValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "Normal"
+        label.text = "-"
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         label.textAlignment = .center
         return label
@@ -81,6 +81,13 @@ class AddTaskViewController: UIViewController {
         return button
     }()
     
+    private let datePicker:  UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .dateAndTime
+        datePicker.minimumDate = Date()
+        return datePicker
+    }()
+    
     private let viewModel: AddTaskViewModel
     
     init(viewModel: AddTaskViewModel) {
@@ -96,6 +103,8 @@ class AddTaskViewController: UIViewController {
         super.viewDidLoad()
         initialSetup()
         makeBindings()
+        
+        showDatePicker()
     }
     
     private func initialSetup() {
@@ -108,7 +117,7 @@ class AddTaskViewController: UIViewController {
         view.addSubview(introductionLabel)
         
         let nameStack = stackHorizontally(views: [nameLabel, nameTextField])
-        let expirationStack = stackHorizontally(views: [expirationDateLabel, expirationDateButton])
+        let expirationStack = stackHorizontally(views: [expirationDateLabel, expirationDateTextField])
         let categoryStack = stackHorizontally(views: [categoryLabel, categoryValueLabel])
         let verticalStack = stackVertically(views: [nameStack, expirationStack, categoryStack])
         let buttonStack = stackHorizontally(views: [categoryButton, saveButton])
@@ -149,12 +158,36 @@ class AddTaskViewController: UIViewController {
         }
     }
     
+    private func showDatePicker() {
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44))
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneDatePickerPressed))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelDatePickerPressend));
+        
+        toolbar.setItems([doneButton, spaceButton, cancelButton], animated: false)
+        expirationDateTextField.inputAccessoryView = toolbar
+        expirationDateTextField.inputView = datePicker
+    }
+    
     @objc
     private func changeCategoryPressed() {
         let changeCategoryViewController = ChangeCategoryViewController()
         changeCategoryViewController.delegate = self
         let navigationController = CustomNavigationController(rootViewController: changeCategoryViewController)
         present(navigationController, animated: true, completion: nil)
+    }
+
+    @objc
+    private func doneDatePickerPressed(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
+        expirationDateTextField.text = formatter.string(from: datePicker.date)
+        view.endEditing(true)
+    }
+
+    @objc
+    private func cancelDatePickerPressend(){
+        view.endEditing(true)
     }
     
 }
