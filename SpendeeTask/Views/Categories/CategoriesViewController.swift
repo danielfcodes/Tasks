@@ -40,6 +40,10 @@ class CategoriesViewController: UIViewController {
         super.viewDidLoad()
         initialSetup()
         makeBindings()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         viewModel.getCategories()
     }
     

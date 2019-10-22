@@ -117,7 +117,7 @@ class AddCategoryViewController: UIViewController {
     
     private func makeBindings() {
         viewModel.categorySaved = { [weak self] in
-            self?.dismiss(animated: true, completion: nil)
+            self?.navigationController?.popViewController(animated: true)
         }
         
         viewModel.categoryDidLoad = { [weak self] in
