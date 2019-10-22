@@ -20,9 +20,12 @@ class AddTaskViewModel {
     var categoryDidUpdate: (() -> Void)?
     
     private let taskDataSource: TaskDataSourceProtocol
+    private let notificationScheduler: NotificationSchedulerDelegate
     
-    init(taskDataSource: TaskDataSourceProtocol = TaskDataSource()) {
+    init(taskDataSource: TaskDataSourceProtocol = TaskDataSource(),
+         notificationScheduler: NotificationSchedulerDelegate = NotificationScheduler()) {
         self.taskDataSource = taskDataSource
+        self.notificationScheduler = notificationScheduler
     }
     
     func setCategory(_ category: Category) {
@@ -34,10 +37,16 @@ class AddTaskViewModel {
         let task = Task(name: name, expirationDate: expirationDate, isDone: false, category: category!)
         taskDataSource.saveTask(task) { result in
             switch result {
-            case .success: self.taskSaved?()
+            case .success:
+                self.setNotification(forDate: task.expirationDate, name: task.name)
+                self.taskSaved?()
             case .failure(let error): print("Error while saving task \(error.localizedDescription)")
             }
         }
+    }
+    
+    private func setNotification(forDate date: Date, name: String) {
+        notificationScheduler.scheduleNotification(forDate: date, withName: name)
     }
     
 }

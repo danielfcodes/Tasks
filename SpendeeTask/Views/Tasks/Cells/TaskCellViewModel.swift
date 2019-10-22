@@ -48,7 +48,3 @@ class TaskCellViewModel {
     }
     
 }
-
-/* TODO:
- - Cambiar el estilo del DONE BUTTON cuando este en DONE
- */

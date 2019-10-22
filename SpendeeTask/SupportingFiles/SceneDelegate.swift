@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         CoreDataManager.shared.createDefaultCategoriesIfNeeded()
+        requestingAuthorizationForNotifications()
         let tasksViewModel = TasksViewModel()
         let navigationController = CustomNavigationController(rootViewController: TasksViewController(viewModel: tasksViewModel))
         window?.rootViewController = navigationController
@@ -50,7 +52,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
+    
+    private func requestingAuthorizationForNotifications() {
+        let notificationCenter = UNUserNotificationCenter.current()
+        let options: UNAuthorizationOptions = [.alert, .sound]
+        notificationCenter.requestAuthorization(options: options) { granted, error in
+            if granted {
+                notificationCenter.delegate = self
+            }
+        }
+    }
+    
+}
 
-
+extension SceneDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound])
+    }
+    
 }
 

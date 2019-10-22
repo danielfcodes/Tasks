@@ -137,7 +137,7 @@ class AddCategoryViewController: ToggleKeyboardViewController, StackCreator {
     @objc
     private func saveButtonPressed() {
         // TODO: Make some validations
-        viewModel.saveCategory(name: nameTextField.text ?? "", colorHex: colorView.backgroundColor?.toHexString() ?? "#FFFFFF")
+        viewModel.saveCategory(name: nameTextField.text ?? "", colorHex: colorView.backgroundColor?.toHexString() ?? "")
     }
     
 }

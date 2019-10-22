@@ -50,6 +50,7 @@
 		4C39BB3E235F9F6B00917EA9 /* DateFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB3D235F9F6B00917EA9 /* DateFormatterExtensions.swift */; };
 		4C39BB40235FA67500917EA9 /* StackCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB3F235FA67500917EA9 /* StackCreator.swift */; };
 		4C39BB46235FA8EB00917EA9 /* ToggleKeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB45235FA8EB00917EA9 /* ToggleKeyboardViewController.swift */; };
+		4C39BB49235FB0BF00917EA9 /* NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB48235FB0BF00917EA9 /* NotificationScheduler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		4C39BB3D235F9F6B00917EA9 /* DateFormatterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtensions.swift; sourceTree = "<group>"; };
 		4C39BB3F235FA67500917EA9 /* StackCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCreator.swift; sourceTree = "<group>"; };
 		4C39BB45235FA8EB00917EA9 /* ToggleKeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleKeyboardViewController.swift; sourceTree = "<group>"; };
+		4C39BB48235FB0BF00917EA9 /* NotificationScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 		4C39BAEB235E467D00917EA9 /* SpendeeTask */ = {
 			isa = PBXGroup;
 			children = (
+				4C39BB47235FB0AD00917EA9 /* NotificationManager */,
 				4C39BB38235F7FBC00917EA9 /* ColorPalette */,
 				4C39BB2E235E76FA00917EA9 /* Database */,
 				4C39BB44235FA8DC00917EA9 /* Helpers */,
@@ -370,6 +373,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		4C39BB47235FB0AD00917EA9 /* NotificationManager */ = {
+			isa = PBXGroup;
+			children = (
+				4C39BB48235FB0BF00917EA9 /* NotificationScheduler.swift */,
+			);
+			path = NotificationManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -468,6 +479,7 @@
 				0F7CF6FF235F0988001B3A84 /* UIColorExtensions.swift in Sources */,
 				4C39BB11235E5A8E00917EA9 /* SettingsViewController.swift in Sources */,
 				4C39BAED235E467D00917EA9 /* AppDelegate.swift in Sources */,
+				4C39BB49235FB0BF00917EA9 /* NotificationScheduler.swift in Sources */,
 				4C39BAEF235E467D00917EA9 /* SceneDelegate.swift in Sources */,
 				0F3B0C20235EFE1900A42903 /* AddCategoryViewModel.swift in Sources */,
 				4C39BB0E235E59A400917EA9 /* DetailTaskViewController.swift in Sources */,

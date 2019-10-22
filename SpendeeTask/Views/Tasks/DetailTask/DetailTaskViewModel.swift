@@ -22,13 +22,16 @@ class DetailTaskViewModel {
     var categoryDidUpdate: (() -> Void)?
     
     private let taskDataSource: TaskDataSourceProtocol
+    private let notificationScheduler: NotificationSchedulerDelegate
     private var items: [DetailItemProtocol] = []
     private var task: Task
     private var moTask: MOTask?
     
-    init(task: Task, taskDataSource: TaskDataSourceProtocol = TaskDataSource()) {
+    init(task: Task, taskDataSource: TaskDataSourceProtocol = TaskDataSource(),
+         notificationScheduler: NotificationSchedulerDelegate = NotificationScheduler()) {
         self.task = task
         self.taskDataSource = taskDataSource
+        self.notificationScheduler = notificationScheduler
         setupItems()
         getMOTask()
     }
@@ -58,7 +61,9 @@ class DetailTaskViewModel {
         guard moTask != nil else { return }
         taskDataSource.updateTask(moTask: moTask!, task: task) { result in
             switch result {
-            case .success: self.categorySaved?()
+            case .success:
+                self.setNotification(forDate: self.task.expirationDate, name: self.task.name)
+                self.categorySaved?()
             case .failure(let error): print("Error when updating task \(error.localizedDescription)")
             }
         }
@@ -76,6 +81,10 @@ class DetailTaskViewModel {
             case .failure(let error): print("Error when fetching task \(error.localizedDescription)")
             }
         }
+    }
+    
+    private func setNotification(forDate date: Date, name: String) {
+        notificationScheduler.scheduleNotification(forDate: date, withName: name)
     }
     
 }
