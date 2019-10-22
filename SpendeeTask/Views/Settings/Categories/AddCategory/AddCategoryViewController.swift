@@ -32,6 +32,18 @@ class AddCategoryViewController: UIViewController {
         return view
     }()
     
+    private lazy var collectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.backgroundColor = .clear
+        return collectionView
+    }()
+    
     private let colors: [UIColor] = [.black, .blue, .brown, .cyan, .gray, .green, .magenta, .orange, .purple, .red]
     
     override func viewDidLoad() {
@@ -49,6 +61,7 @@ class AddCategoryViewController: UIViewController {
         let nameStack = stackHorizontally(views: [nameLabel, nameTextField])
         view.addSubview(nameStack)
         view.addSubview(colorView)
+        view.addSubview(collectionView)
         
         nameStack.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(24)
@@ -62,6 +75,35 @@ class AddCategoryViewController: UIViewController {
             make.width.equalTo(150)
             make.height.equalTo(150)
         }
+        
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(colorView.snp.bottom).offset(32)
+            make.left.equalToSuperview().offset(24)
+            make.right.equalToSuperview().offset(-24)
+            make.height.equalTo(50)
+        }
+    }
+    
+}
+
+extension AddCategoryViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: 50, height: 50)
+//    }
+    
+}
+
+extension AddCategoryViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return colors.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        cell.backgroundColor = colors[indexPath.item]
+        return cell
     }
     
 }
