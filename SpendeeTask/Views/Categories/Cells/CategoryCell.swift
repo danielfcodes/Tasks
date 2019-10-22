@@ -19,7 +19,6 @@ class CategoryCell: UITableViewCell {
     
     private let categoryColorView: UIView = {
         let view = UIView()
-        view.backgroundColor = .orange
         view.layer.cornerRadius = 8
         return view
     }()

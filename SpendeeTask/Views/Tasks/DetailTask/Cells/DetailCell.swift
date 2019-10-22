@@ -35,7 +35,7 @@ class DetailCell: UITableViewCell {
         let button = UIButton(type: .system)
         button.setTitle("Done", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBlue
+        button.backgroundColor = ColorPalette.secondaryColor
         button.layer.cornerRadius = 8
         return button
     }()

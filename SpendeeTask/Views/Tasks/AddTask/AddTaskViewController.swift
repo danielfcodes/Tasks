@@ -66,7 +66,7 @@ class AddTaskViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Change Category", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBlue
+        button.backgroundColor = ColorPalette.infoColor
         button.layer.cornerRadius = 8
         button.addTarget(self, action: #selector(changeCategoryPressed), for: .touchUpInside)
         return button
@@ -76,7 +76,7 @@ class AddTaskViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Save", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemGreen
+        button.backgroundColor = ColorPalette.secondaryColor
         button.layer.cornerRadius = 8
         button.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
         return button

@@ -33,7 +33,6 @@ class TaskCell: UITableViewCell {
     
     private let categoryView: UIView = {
         let view = UIView()
-        view.backgroundColor = .orange
         view.layer.cornerRadius = 8
         return view
     }()
@@ -42,7 +41,7 @@ class TaskCell: UITableViewCell {
         let button = UIButton(type: .system)
         button.setTitle("Done", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBlue
+        button.backgroundColor = ColorPalette.secondaryColor
         button.layer.cornerRadius = 8
         button.addTarget(self, action: #selector(doneButtonPressed), for: .touchUpInside)
         return button

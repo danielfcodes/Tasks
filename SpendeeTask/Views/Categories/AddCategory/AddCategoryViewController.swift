@@ -48,7 +48,7 @@ class AddCategoryViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Save", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemGreen
+        button.backgroundColor = ColorPalette.secondaryColor
         button.layer.cornerRadius = 8
         button.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
         return button

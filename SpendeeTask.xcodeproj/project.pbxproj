@@ -45,6 +45,7 @@
 		4C39BB31235E781500917EA9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB30235E781500917EA9 /* CoreDataManager.swift */; };
 		4C39BB34235E78E600917EA9 /* Spendee.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB32235E78E600917EA9 /* Spendee.xcdatamodeld */; };
 		4C39BB37235E7BC900917EA9 /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB36235E7BC900917EA9 /* AddCategoryViewController.swift */; };
+		4C39BB3A235F7FDA00917EA9 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB39235F7FDA00917EA9 /* ColorPalette.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		4C39BB30235E781500917EA9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		4C39BB33235E78E600917EA9 /* Spendee.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Spendee.xcdatamodel; sourceTree = "<group>"; };
 		4C39BB36235E7BC900917EA9 /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
+		4C39BB39235F7FDA00917EA9 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 		4C39BAEB235E467D00917EA9 /* SpendeeTask */ = {
 			isa = PBXGroup;
 			children = (
+				4C39BB38235F7FBC00917EA9 /* ColorPalette */,
 				4C39BB2E235E76FA00917EA9 /* Database */,
 				4C39BB2B235E74D900917EA9 /* Extensions */,
 				4C39BB09235E4EF800917EA9 /* Protocols */,
@@ -339,6 +342,14 @@
 			path = AddCategory;
 			sourceTree = "<group>";
 		};
+		4C39BB38235F7FBC00917EA9 /* ColorPalette */ = {
+			isa = PBXGroup;
+			children = (
+				4C39BB39235F7FDA00917EA9 /* ColorPalette.swift */,
+			);
+			path = ColorPalette;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -441,6 +452,7 @@
 				4C39BB0B235E4F0500917EA9 /* CellProtocol.swift in Sources */,
 				4C39BB19235E5DEE00917EA9 /* CategoryCell.swift in Sources */,
 				0F7CF712235F37FA001B3A84 /* TaskDataSource.swift in Sources */,
+				4C39BB3A235F7FDA00917EA9 /* ColorPalette.swift in Sources */,
 				4C39BB26235E70B500917EA9 /* CategoriesViewController.swift in Sources */,
 				0F7CF701235F0D6D001B3A84 /* CategoriesViewModel.swift in Sources */,
 				0F3B0C36235F01B800A42903 /* Category.swift in Sources */,

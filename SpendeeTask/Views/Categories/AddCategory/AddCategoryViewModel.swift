@@ -11,7 +11,7 @@ import Foundation
 class AddCategoryViewModel {
     
     var title: String {
-        return category != nil ? "Edit" : "Add a Category"
+        return isEditing ? "Edit" : "Add a Category"
     }
     
     var categoryName: String {
@@ -20,6 +20,10 @@ class AddCategoryViewModel {
     
     var categoryColor: String {
         return category?.color ?? ""
+    }
+    
+    var isEditing: Bool {
+        return category != nil
     }
     
     var categorySaved: (() -> Void)?
@@ -35,7 +39,7 @@ class AddCategoryViewModel {
     }
     
     func saveCategory(name: String, colorHex: String) {
-        if category != nil {
+        if isEditing {
             updateCategoryInDB(name: name, colorHex: colorHex)
         } else {
             saveCategoryInDB(name: name, colorHex: colorHex)
