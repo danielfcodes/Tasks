@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0F3B0C20235EFE1900A42903 /* AddCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B0C1F235EFE1900A42903 /* AddCategoryViewModel.swift */; };
+		0F3B0C36235F01B800A42903 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B0C35235F01B800A42903 /* Category.swift */; };
+		0F3B0C39235F027500A42903 /* MOCategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B0C37235F027500A42903 /* MOCategory+CoreDataClass.swift */; };
+		0F3B0C3A235F027500A42903 /* MOCategory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B0C38235F027500A42903 /* MOCategory+CoreDataProperties.swift */; };
 		4C39BAED235E467D00917EA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BAEC235E467D00917EA9 /* AppDelegate.swift */; };
 		4C39BAEF235E467D00917EA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BAEE235E467D00917EA9 /* SceneDelegate.swift */; };
 		4C39BAF6235E468100917EA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C39BAF5235E468100917EA9 /* Assets.xcassets */; };
@@ -34,6 +37,9 @@
 
 /* Begin PBXFileReference section */
 		0F3B0C1F235EFE1900A42903 /* AddCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewModel.swift; sourceTree = "<group>"; };
+		0F3B0C35235F01B800A42903 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		0F3B0C37235F027500A42903 /* MOCategory+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MOCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0F3B0C38235F027500A42903 /* MOCategory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MOCategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4C39BAE9235E467D00917EA9 /* SpendeeTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpendeeTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C39BAEC235E467D00917EA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C39BAEE235E467D00917EA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +77,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F3B0C22235EFF7D00A42903 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0F3B0C37235F027500A42903 /* MOCategory+CoreDataClass.swift */,
+				0F3B0C38235F027500A42903 /* MOCategory+CoreDataProperties.swift */,
+				0F3B0C35235F01B800A42903 /* Category.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0F3B0C3B235F029A00A42903 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 		4C39BAE0235E467D00917EA9 = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +236,7 @@
 		4C39BB24235E70A400917EA9 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				4C39BB35235E7BB400917EA9 /* AddCategory */,
 				4C39BB27235E72E900917EA9 /* Cells */,
 				4C39BB25235E70B500917EA9 /* CategoriesViewController.swift */,
 			);
@@ -230,7 +254,6 @@
 		4C39BB28235E747600917EA9 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				4C39BB35235E7BB400917EA9 /* AddCategory */,
 				4C39BB29235E748400917EA9 /* SettingsCategoriesViewController.swift */,
 			);
 			path = Categories;
@@ -256,6 +279,8 @@
 		4C39BB35235E7BB400917EA9 /* AddCategory */ = {
 			isa = PBXGroup;
 			children = (
+				0F3B0C3B235F029A00A42903 /* DataSource */,
+				0F3B0C22235EFF7D00A42903 /* Models */,
 				4C39BB36235E7BC900917EA9 /* AddCategoryViewController.swift */,
 				0F3B0C1F235EFE1900A42903 /* AddCategoryViewModel.swift */,
 			);
@@ -340,8 +365,10 @@
 				4C39BB04235E478500917EA9 /* TasksViewController.swift in Sources */,
 				4C39BB31235E781500917EA9 /* CoreDataManager.swift in Sources */,
 				4C39BB1E235E5F6200917EA9 /* Task.swift in Sources */,
+				0F3B0C39235F027500A42903 /* MOCategory+CoreDataClass.swift in Sources */,
 				4C39BB23235E6F3700917EA9 /* CustomNavigationController.swift in Sources */,
 				4C39BB2A235E748400917EA9 /* SettingsCategoriesViewController.swift in Sources */,
+				0F3B0C3A235F027500A42903 /* MOCategory+CoreDataProperties.swift in Sources */,
 				4C39BB1B235E5F2A00917EA9 /* DetailTaskViewModel.swift in Sources */,
 				4C39BB34235E78E600917EA9 /* Spendee.xcdatamodeld in Sources */,
 				4C39BB11235E5A8E00917EA9 /* SettingsViewController.swift in Sources */,
@@ -353,6 +380,7 @@
 				4C39BB0B235E4F0500917EA9 /* CellProtocol.swift in Sources */,
 				4C39BB19235E5DEE00917EA9 /* CategoryCell.swift in Sources */,
 				4C39BB26235E70B500917EA9 /* CategoriesViewController.swift in Sources */,
+				0F3B0C36235F01B800A42903 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
