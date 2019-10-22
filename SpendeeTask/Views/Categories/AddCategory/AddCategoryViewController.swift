@@ -70,12 +70,14 @@ class AddCategoryViewController: UIViewController {
         super.viewDidLoad()
         initialSetup()
         makeBindings()
+        viewModel.getCategoryIfNeeded()
     }
     
     private func initialSetup() {
         view.backgroundColor = .white
-        title = "Add a Category"
+        title = viewModel.title
         setupViews()
+        
     }
     
     private func setupViews() {
@@ -116,6 +118,11 @@ class AddCategoryViewController: UIViewController {
     private func makeBindings() {
         viewModel.categorySaved = { [weak self] in
             self?.dismiss(animated: true, completion: nil)
+        }
+        
+        viewModel.categoryDidLoad = { [weak self] in
+            self?.nameTextField.text = self?.viewModel.categoryName
+            self?.colorView.backgroundColor = UIColor(hexString: self?.viewModel.categoryColor ?? "")
         }
     }
     

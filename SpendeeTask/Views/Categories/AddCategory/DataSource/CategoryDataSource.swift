@@ -13,6 +13,7 @@ struct EmptyObject {}
 protocol CategoryDataSourceProtocol {
     func saveCategory(_ category: Category, completion: @escaping (Result<EmptyObject, Error>) -> Void)
     func getCategories(completion: @escaping (Result<[Category], Error>) -> Void)
+    func getCategory(withName name: String, completion: @escaping (Result<MOCategory, Error>) -> Void)
 }
 
 class CategoryDataSource: CategoryDataSourceProtocol {
@@ -39,6 +40,23 @@ class CategoryDataSource: CategoryDataSourceProtocol {
             let moCategories = try context.fetch(request)
             let categories = moCategories.compactMap { Category(moCategory: $0) }
             completion(.success(categories))
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
+    
+    func getCategory(withName name: String, completion: @escaping (Result<MOCategory, Error>) -> Void) {
+        let context = CoreDataManager.shared.viewContext
+        let predicate = NSPredicate(format: "name == %@", name)
+        let request: NSFetchRequest<MOCategory> = MOCategory.fetchRequest()
+        request.predicate = predicate
+        
+        do {
+            guard let moCategory = try context.fetch(request).first else {
+                return
+            }
+            
+            completion(.success(moCategory))
         } catch let error {
             completion(.failure(error))
         }

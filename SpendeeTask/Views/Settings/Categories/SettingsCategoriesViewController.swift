@@ -39,8 +39,10 @@ class SettingsCategoriesViewController: UIViewController {
 
 extension SettingsCategoriesViewController: CategoriesViewControllerDelegate {
     
-    func categoriesViewControllerDelegate(didSelectRowAt indexPath: IndexPath) {
-        print("edit category")
+    func categoriesViewControllerDelegate(didSelectRowAt indexPath: IndexPath, category: Category) {
+        let addCategoryViewModel = AddCategoryViewModel(category: category)
+        let addCategoryViewController = AddCategoryViewController(viewModel: addCategoryViewModel)
+        navigationController?.pushViewController(addCategoryViewController, animated: true)
     }
     
 }

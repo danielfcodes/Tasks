@@ -10,10 +10,27 @@ import Foundation
 
 class AddCategoryViewModel {
     
-    var categorySaved: (() -> Void)?
-    private let categoryDataSource: CategoryDataSourceProtocol
+    var title: String {
+        return category != nil ? "Edit" : "Add a Category"
+    }
     
-    init(categoryDataSource: CategoryDataSourceProtocol = CategoryDataSource()) {
+    var categoryName: String {
+        return category?.name ?? ""
+    }
+    
+    var categoryColor: String {
+        return category?.color ?? ""
+    }
+    
+    var categorySaved: (() -> Void)?
+    var categoryDidLoad: (() -> Void)?
+    
+    private let categoryDataSource: CategoryDataSourceProtocol
+    private var category: Category?
+    private var moCategory: MOCategory?
+    
+    init(category: Category? = nil, categoryDataSource: CategoryDataSourceProtocol = CategoryDataSource()) {
+        self.category = category
         self.categoryDataSource = categoryDataSource
     }
     
@@ -23,6 +40,18 @@ class AddCategoryViewModel {
             switch result {
             case .success: self.categorySaved?()
             case .failure(let error): print("Error when saving... \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func getCategoryIfNeeded() {
+        guard category != nil else { return }
+        categoryDataSource.getCategory(withName: category!.name) { result in
+            switch result {
+            case .success(let moCategory):
+                self.moCategory = moCategory
+                self.categoryDidLoad?()
+            case .failure(let error): print("Error when fetching specific category \(error.localizedDescription)")
             }
         }
     }

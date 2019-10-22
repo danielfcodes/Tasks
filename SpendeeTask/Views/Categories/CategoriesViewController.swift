@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 protocol CategoriesViewControllerDelegate: class {
-    func categoriesViewControllerDelegate(didSelectRowAt indexPath: IndexPath)
+    func categoriesViewControllerDelegate(didSelectRowAt indexPath: IndexPath, category: Category)
 }
 
 class CategoriesViewController: UIViewController {
@@ -72,7 +72,7 @@ extension CategoriesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        delegate?.categoriesViewControllerDelegate(didSelectRowAt: indexPath)
+        delegate?.categoriesViewControllerDelegate(didSelectRowAt: indexPath, category: viewModel.categories[indexPath.row])
     }
     
 }
