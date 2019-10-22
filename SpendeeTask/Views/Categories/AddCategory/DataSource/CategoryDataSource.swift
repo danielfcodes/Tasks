@@ -21,7 +21,7 @@ class CategoryDataSource: CategoryDataSourceProtocol {
         let context = CoreDataManager.shared.viewContext
         let moCategory = MOCategory(context: context)
         moCategory.name = category.name
-        moCategory.color = category.color.encode()
+        moCategory.color = category.color
         
         do {
             try context.save()

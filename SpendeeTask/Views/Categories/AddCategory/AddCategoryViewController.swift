@@ -50,14 +50,26 @@ class AddCategoryViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemGreen
         button.layer.cornerRadius = 8
+        button.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
         return button
     }()
     
     private let colors: [UIColor] = [.black, .blue, .brown, .cyan, .gray, .green, .magenta, .orange, .purple, .red]
+    private let viewModel: AddCategoryViewModel
+    
+    init(viewModel: AddCategoryViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        makeBindings()
     }
     
     private func initialSetup() {
@@ -101,8 +113,20 @@ class AddCategoryViewController: UIViewController {
         }
     }
     
+    private func makeBindings() {
+        viewModel.categorySaved = { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     private func changeColorView(withColor color: UIColor) {
         colorView.backgroundColor = color
+    }
+    
+    @objc
+    private func saveButtonPressed() {
+        // TODO: Make some validations
+        viewModel.saveCategory(name: nameTextField.text ?? "", colorHex: colorView.backgroundColor?.toHexString() ?? "#FFFFFF")
     }
     
 }

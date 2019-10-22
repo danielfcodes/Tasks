@@ -10,10 +10,15 @@ import UIKit
 
 struct Category {
     var name: String
-    var color: UIColor
+    var color: String
     
     init(moCategory: MOCategory) {
         self.name = moCategory.name ?? ""
-        self.color = UIColor.color(data: moCategory.color! as Data) ?? .black
+        self.color = moCategory.color ?? ""
+    }
+    
+    init(name: String, color: String) {
+        self.name = name
+        self.color = color
     }
 }
