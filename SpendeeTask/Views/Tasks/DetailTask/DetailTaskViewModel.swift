@@ -30,6 +30,14 @@ class DetailTaskViewModel {
         return items[index].sectionTitle
     }
     
+    func getDetailCellViewModel() -> DetailCellViewModel {
+        return DetailCellViewModel(task: task)
+    }
+    
+    func getCategoryCellViewModel() -> CategoryCellViewModel {
+        return CategoryCellViewModel(category: task.category)
+    }
+    
     private func setupItems() {
         items.append(DetailItem(sectionType: .general, task: task))
         items.append(DetailItem(sectionType: .category, task: task))

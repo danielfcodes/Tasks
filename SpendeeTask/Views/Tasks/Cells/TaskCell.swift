@@ -11,6 +11,12 @@ import SnapKit
 
 class TaskCell: UITableViewCell {
     
+    var viewModel: TaskCellViewModel? {
+        didSet {
+            fillUI()
+        }
+    }
+    
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Save passport"
@@ -41,12 +47,6 @@ class TaskCell: UITableViewCell {
         button.layer.cornerRadius = 8
         return button
     }()
-    
-    var viewModel: TaskCellViewModel? {
-        didSet {
-            fillUI()
-        }
-    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

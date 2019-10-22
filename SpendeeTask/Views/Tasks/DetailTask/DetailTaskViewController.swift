@@ -95,13 +95,13 @@ extension DetailTaskViewController: UITableViewDataSource {
     
     private func setupDetailCell(indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailCell.identifier, for: indexPath) as? DetailCell else { return UITableViewCell() }
-        
+        cell.viewModel = viewModel.getDetailCellViewModel()
         return cell
     }
     
     private func setupCategoryCell(indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.identifier, for: indexPath) as? CategoryCell else { return UITableViewCell() }
-        
+        cell.viewModel = viewModel.getCategoryCellViewModel()
         return cell
     }
     

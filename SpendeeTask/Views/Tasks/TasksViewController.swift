@@ -84,7 +84,8 @@ class TasksViewController: UIViewController {
     }
     
     private func showDetailTask(indexPath: IndexPath) {
-        let detailViewModel = DetailTaskViewModel(task: Task(name: "", expirationDate: "", isDone: false, category: Category(name: "", color: "#FFFFFF")))
+        let task = viewModel.tasks[indexPath.row]
+        let detailViewModel = DetailTaskViewModel(task: task)
         let detailTaskViewController = DetailTaskViewController(withViewModel: detailViewModel)
         navigationController?.pushViewController(detailTaskViewController, animated: true)
     }

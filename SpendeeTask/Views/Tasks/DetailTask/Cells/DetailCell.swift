@@ -11,6 +11,12 @@ import SnapKit
 
 class DetailCell: UITableViewCell {
     
+    var viewModel: DetailCellViewModel? {
+        didSet {
+            fillUI()
+        }
+    }
+    
     private let nameTextField: UITextField = {
         let textField = UITextField()
         textField.text = "Save passport"
@@ -66,6 +72,12 @@ class DetailCell: UITableViewCell {
             make.height.equalTo(34)
             make.width.equalTo(100)
         }
+    }
+    
+    private func fillUI() {
+        nameTextField.text = viewModel?.name
+        dateTextField.text = viewModel?.expirationDate
+        doneButton.isHidden = viewModel?.isDone ?? true
     }
     
 }
