@@ -3,7 +3,7 @@
     <entity name="MOCategory" representedClassName="MOCategory" syncable="YES">
         <attribute name="color" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="moTask" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MOTask" inverseName="moCategory" inverseEntity="MOTask"/>
+        <relationship name="moTask" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MOTask" inverseName="moCategory" inverseEntity="MOTask"/>
     </entity>
     <entity name="MOTask" representedClassName="MOTask" syncable="YES">
         <attribute name="expirationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>

@@ -33,16 +33,17 @@ class TaskDataSource: TaskDataSourceProtocol {
         
         categoryDataSource.getCategory(withName: task.category.name) { result in
             switch result {
-            case .success(let moCategory): moTask.moCategory = moCategory
+            case .success(let moCategory):
+                moTask.moCategory = moCategory
+                
+                do {
+                    try context.save()
+                    completion(.success(EmptyObject()))
+                } catch let error {
+                    completion(.failure(error))
+                }
             case .failure(let error): completion(.failure(error))
             }
-        }
-
-        do {
-            try context.save()
-            completion(.success(EmptyObject()))
-        } catch let error {
-            completion(.failure(error))
         }
     }
     
@@ -55,16 +56,18 @@ class TaskDataSource: TaskDataSourceProtocol {
         
         categoryDataSource.getCategory(withName: task.category.name) { result in
             switch result {
-            case .success(let moCategory): moTask.moCategory = moCategory
+            case .success(let moCategory):
+                moTask.moCategory = moCategory
+                
+                do {
+                    try context.save()
+                    completion(.success(EmptyObject()))
+                } catch let error {
+                    completion(.failure(error))
+                }
+                
             case .failure(let error): completion(.failure(error))
             }
-        }
-        
-        do {
-            try context.save()
-            completion(.success(EmptyObject()))
-        } catch let error {
-            completion(.failure(error))
         }
     }
     

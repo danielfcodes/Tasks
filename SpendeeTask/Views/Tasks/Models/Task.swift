@@ -14,11 +14,13 @@ class Task {
     var isDone: Bool = false
     var category: Category
     
-    init(moTask: MOTask) {
+    init?(moTask: MOTask) {
+        guard let moCategory = moTask.moCategory else { return nil }
         self.name = moTask.name ?? ""
         self.expirationDate = ""
         self.isDone = moTask.isDone
-        self.category = Category(moCategory: moTask.moCategory!)
+        self.category = Category(moCategory: moCategory)
+        
     }
     
     init(name: String, expirationDate: String, isDone: Bool, category: Category) {
