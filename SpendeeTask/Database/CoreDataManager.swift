@@ -39,4 +39,27 @@ class CoreDataManager {
         }
     }
     
+    func createDefaultCategoriesIfNeeded() {
+        let categoryDataSource = CategoryDataSource()
+        categoryDataSource.getCategories { result in
+            switch result {
+            case .success(let categories):
+                if categories.isEmpty {
+                    self.createDefaultCategories()
+                }
+            default: return
+            }
+        }
+    }
+    
+    private func createDefaultCategories() {
+        let critical = Category(name: "Critical", color: "#FF0000")
+        let high = Category(name: "High", color: "#ff791e")
+        let normal = Category(name: "Normal", color: "#33d236")
+        let low = Category(name: "Low", color: "#e2a0ff")
+        
+        let categoryDataSource = CategoryDataSource()
+        categoryDataSource.saveCategories([critical, high, normal, low])
+    }
+    
 }

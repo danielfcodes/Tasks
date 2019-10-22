@@ -11,6 +11,7 @@ import CoreData
 struct EmptyObject {}
 
 protocol CategoryDataSourceProtocol {
+    func saveCategories(_ categories: [Category])
     func saveCategory(_ category: Category, completion: @escaping (Result<EmptyObject, Error>) -> Void)
     func updateCategory(completion: @escaping (Result<EmptyObject, Error>) -> Void)
     func getCategories(completion: @escaping (Result<[Category], Error>) -> Void)
@@ -18,6 +19,12 @@ protocol CategoryDataSourceProtocol {
 }
 
 class CategoryDataSource: CategoryDataSourceProtocol {
+    
+    func saveCategories(_ categories: [Category]) {
+        for category in categories {
+            saveCategory(category) { _ in }
+        }
+    }
     
     func saveCategory(_ category: Category, completion: @escaping (Result<EmptyObject, Error>) -> Void) {
         let context = CoreDataManager.shared.viewContext
