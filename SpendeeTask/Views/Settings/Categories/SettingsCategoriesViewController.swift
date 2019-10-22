@@ -29,7 +29,8 @@ class SettingsCategoriesViewController: UIViewController {
     
     @objc
     private func addCategoryPressed() {
-        print("add category")
+        let addCategoryViewController = AddCategoryViewController()
+        navigationController?.pushViewController(addCategoryViewController, animated: true)
     }
     
 }

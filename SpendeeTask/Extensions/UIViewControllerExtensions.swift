@@ -26,4 +26,22 @@ extension UIViewController {
         removeFromParent()
     }
     
+    func stackHorizontally(views: [UIView]) -> UIStackView {
+        let stackView = UIStackView(arrangedSubviews: views)
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        stackView.axis = .horizontal
+        stackView.spacing = 24
+        return stackView
+    }
+    
+    func stackVertically(views: [UIView]) -> UIStackView {
+        let stackView = UIStackView(arrangedSubviews: views)
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        stackView.axis = .vertical
+        stackView.spacing = 24
+        return stackView
+    }
+    
 }
