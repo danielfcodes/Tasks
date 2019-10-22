@@ -84,7 +84,7 @@ class TasksViewController: UIViewController {
     }
     
     private func showDetailTask(indexPath: IndexPath) {
-        let task = viewModel.tasks[indexPath.row]
+        let task = viewModel.getTask(atIndexPath: indexPath)
         let detailViewModel = DetailTaskViewModel(task: task)
         let detailTaskViewController = DetailTaskViewController(withViewModel: detailViewModel)
         navigationController?.pushViewController(detailTaskViewController, animated: true)
@@ -103,12 +103,24 @@ extension TasksViewController: UITableViewDelegate {
         showDetailTask(indexPath: indexPath)
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel.sectionTitleForHeader(index: section)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
 }
 
 extension TasksViewController: UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.items.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.tasks.count
+        return viewModel.items[section].tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

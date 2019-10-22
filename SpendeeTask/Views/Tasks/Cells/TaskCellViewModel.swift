@@ -54,4 +54,5 @@ class TaskCellViewModel {
  - pasar el getMO Model al data source en lugar de hacer un get en el view model
  - Poner en la main queue todos los bindings que actualicen vista
  - DateFormatter para las celdas
+ - TaskItem dentro de TASKS folder
  */
