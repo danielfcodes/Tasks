@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Task {
+class Task {
     var name: String
     var expirationDate: String
     var isDone: Bool = false

@@ -33,12 +33,14 @@ class DetailTaskViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        makeBindings()
     }
     
     private func initialSetup() {
         view.backgroundColor = .white
         title = "Detail"
         setupTableView()
+        addBarButtons()
     }
     
     private func setupTableView() {
@@ -47,6 +49,36 @@ class DetailTaskViewController: UIViewController {
         tableView.snp.makeConstraints { make in
             make.top.left.bottom.right.equalToSuperview()
         }
+    }
+    
+    private func addBarButtons() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(updateTask))
+    }
+    
+    private func makeBindings() {
+        viewModel.categoryDidUpdate = { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadSections(IndexSet(integersIn: 1...1), with: .fade)
+            }
+        }
+        
+        viewModel.categorySaved = { [weak self] in
+            DispatchQueue.main.async {
+                self?.navigationController?.popViewController(animated: true)
+            }
+        }
+    }
+    
+    private func showChangeCategory() {
+        let changeCategoryViewController = ChangeCategoryViewController()
+        changeCategoryViewController.delegate = self
+        navigationController?.pushViewController(changeCategoryViewController, animated: true)
+    }
+    
+    @objc
+    private func updateTask() {
+        // TODO: Make some validations
+        viewModel.updateTask()
     }
     
 }
@@ -63,6 +95,11 @@ extension DetailTaskViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let sectionType = viewModel.sectionForHeader(index: indexPath.section)
+        switch sectionType {
+        case .general: return
+        case .category: showChangeCategory()
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -103,6 +140,15 @@ extension DetailTaskViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.identifier, for: indexPath) as? CategoryCell else { return UITableViewCell() }
         cell.viewModel = viewModel.getCategoryCellViewModel()
         return cell
+    }
+    
+}
+
+extension DetailTaskViewController: ChangeCategoryViewControllerDelegate {
+    
+    func changeCategoryViewControllerDelegate(changeCategoryViewController: ChangeCategoryViewController, didSelectCategory category: Category) {
+        changeCategoryViewController.navigationController?.popViewController(animated: true)
+        viewModel.setCategory(category)
     }
     
 }

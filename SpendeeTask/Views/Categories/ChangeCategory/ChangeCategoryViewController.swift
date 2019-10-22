@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ChangeCategoryViewControllerDelegate: class {
-    func changeCategoryViewControllerDelegate(didSelectCategory category: Category)
+    func changeCategoryViewControllerDelegate(changeCategoryViewController: ChangeCategoryViewController, didSelectCategory category: Category)
 }
 
 class ChangeCategoryViewController: UIViewController {
@@ -34,7 +34,7 @@ class ChangeCategoryViewController: UIViewController {
 extension ChangeCategoryViewController: CategoriesViewControllerDelegate {
     
     func categoriesViewControllerDelegate(didSelectRowAt indexPath: IndexPath, category: Category) {
-        delegate?.changeCategoryViewControllerDelegate(didSelectCategory: category)
+        delegate?.changeCategoryViewControllerDelegate(changeCategoryViewController: self, didSelectCategory: category)
         dismiss(animated: true, completion: nil)
     }
     

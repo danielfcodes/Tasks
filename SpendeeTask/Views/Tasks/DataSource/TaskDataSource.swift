@@ -11,9 +11,9 @@ import CoreData
 
 protocol TaskDataSourceProtocol {
     func saveTask(_ task: Task, completion: @escaping (Result<EmptyObject, Error>) -> Void)
-//    func updateCategory(completion: @escaping (Result<EmptyObject, Error>) -> Void)
+    func updateTask(moTask: MOTask, task: Task, completion: @escaping (Result<EmptyObject, Error>) -> Void)
     func getTasks(completion: @escaping (Result<[Task], Error>) -> Void)
-//    func getCategory(withName name: String, completion: @escaping (Result<MOCategory, Error>) -> Void)
+    func getTask(withName name: String, completion: @escaping (Result<MOTask, Error>) -> Void)
 }
 
 class TaskDataSource: TaskDataSourceProtocol {
@@ -46,16 +46,27 @@ class TaskDataSource: TaskDataSourceProtocol {
         }
     }
     
-//    func updateCategory(completion: @escaping (Result<EmptyObject, Error>) -> Void) {
-//        let context = CoreDataManager.shared.viewContext
-//
-//        do {
-//            try context.save()
-//            completion(.success(EmptyObject()))
-//        } catch let error {
-//            completion(.failure(error))
-//        }
-//    }
+    func updateTask(moTask: MOTask, task: Task, completion: @escaping (Result<EmptyObject, Error>) -> Void) {
+        let context = CoreDataManager.shared.viewContext
+
+        moTask.name = task.name
+        moTask.expirationDate = Date()
+        moTask.isDone = task.isDone
+        
+        categoryDataSource.getCategory(withName: task.category.name) { result in
+            switch result {
+            case .success(let moCategory): moTask.moCategory = moCategory
+            case .failure(let error): completion(.failure(error))
+            }
+        }
+        
+        do {
+            try context.save()
+            completion(.success(EmptyObject()))
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
     
     func getTasks(completion: @escaping (Result<[Task], Error>) -> Void) {
         let context = CoreDataManager.shared.viewContext
@@ -70,21 +81,21 @@ class TaskDataSource: TaskDataSourceProtocol {
         }
     }
     
-//    func getCategory(withName name: String, completion: @escaping (Result<MOCategory, Error>) -> Void) {
-//        let context = CoreDataManager.shared.viewContext
-//        let predicate = NSPredicate(format: "name == %@", name)
-//        let request: NSFetchRequest<MOCategory> = MOCategory.fetchRequest()
-//        request.predicate = predicate
-//
-//        do {
-//            guard let moCategory = try context.fetch(request).first else {
-//                return
-//            }
-//
-//            completion(.success(moCategory))
-//        } catch let error {
-//            completion(.failure(error))
-//        }
-//    }
+    func getTask(withName name: String, completion: @escaping (Result<MOTask, Error>) -> Void) {
+        let context = CoreDataManager.shared.viewContext
+        let predicate = NSPredicate(format: "name == %@", name)
+        let request: NSFetchRequest<MOTask> = MOTask.fetchRequest()
+        request.predicate = predicate
+
+        do {
+            guard let moTask = try context.fetch(request).first else {
+                return
+            }
+
+            completion(.success(moTask))
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
     
 }

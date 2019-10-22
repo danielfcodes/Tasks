@@ -204,7 +204,8 @@ class AddTaskViewController: UIViewController {
 
 extension AddTaskViewController: ChangeCategoryViewControllerDelegate {
     
-    func changeCategoryViewControllerDelegate(didSelectCategory category: Category) {
+    func changeCategoryViewControllerDelegate(changeCategoryViewController: ChangeCategoryViewController, didSelectCategory category: Category) {
+        changeCategoryViewController.dismiss(animated: true, completion: nil)
         viewModel.setCategory(category)
     }
     

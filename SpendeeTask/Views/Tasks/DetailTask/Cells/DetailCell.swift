@@ -17,16 +17,15 @@ class DetailCell: UITableViewCell {
         }
     }
     
-    private let nameTextField: UITextField = {
+    private lazy var nameTextField: UITextField = {
         let textField = UITextField()
-        textField.text = "Save passport"
         textField.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        textField.addTarget(self, action: #selector(nameTextFieldChanged), for: .editingChanged)
         return textField
     }()
     
     private let dateTextField: UITextField = {
         let textField = UITextField()
-        textField.text = "Exp: 07/10/2019"
         textField.textColor = .systemGray
         textField.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         return textField
@@ -78,6 +77,11 @@ class DetailCell: UITableViewCell {
         nameTextField.text = viewModel?.name
         dateTextField.text = viewModel?.expirationDate
         doneButton.isHidden = viewModel?.isDone ?? true
+    }
+    
+    @objc
+    private func nameTextFieldChanged() {
+        viewModel?.setName(nameTextField.text ?? "")
     }
     
 }

@@ -28,4 +28,8 @@ class DetailCellViewModel {
         self.task = task
     }
     
+    func setName(_ name: String) {
+        task.name = name
+    }
+    
 }
