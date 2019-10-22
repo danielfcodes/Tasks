@@ -177,7 +177,7 @@
 		4C39BB05235E478C00917EA9 /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
-				4C39BB1C235E5F5900917EA9 /* Model */,
+				4C39BB1C235E5F5900917EA9 /* Models */,
 				4C39BB12235E5BC500917EA9 /* AddTask */,
 				4C39BB0C235E599300917EA9 /* DetailTask */,
 				4C39BB06235E4EAB00917EA9 /* Cells */,
@@ -239,12 +239,12 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		4C39BB1C235E5F5900917EA9 /* Model */ = {
+		4C39BB1C235E5F5900917EA9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				4C39BB1D235E5F6200917EA9 /* Task.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		4C39BB21235E6EC300917EA9 /* Navigation */ = {
@@ -258,6 +258,8 @@
 		4C39BB24235E70A400917EA9 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				0F3B0C3B235F029A00A42903 /* DataSource */,
+				0F3B0C22235EFF7D00A42903 /* Models */,
 				0F7CF709235F2887001B3A84 /* ChangeCategory */,
 				4C39BB35235E7BB400917EA9 /* AddCategory */,
 				4C39BB27235E72E900917EA9 /* Cells */,
@@ -305,8 +307,6 @@
 		4C39BB35235E7BB400917EA9 /* AddCategory */ = {
 			isa = PBXGroup;
 			children = (
-				0F3B0C3B235F029A00A42903 /* DataSource */,
-				0F3B0C22235EFF7D00A42903 /* Models */,
 				4C39BB36235E7BC900917EA9 /* AddCategoryViewController.swift */,
 				0F3B0C1F235EFE1900A42903 /* AddCategoryViewModel.swift */,
 			);

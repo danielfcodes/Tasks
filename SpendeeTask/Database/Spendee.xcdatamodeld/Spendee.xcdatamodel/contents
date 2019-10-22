@@ -3,8 +3,15 @@
     <entity name="MOCategory" representedClassName="MOCategory" syncable="YES">
         <attribute name="color" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="moTask" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MOTask" inverseName="moCategory" inverseEntity="MOTask"/>
+    </entity>
+    <entity name="MOTask" representedClassName="MOTask" syncable="YES" codeGenerationType="class">
+        <attribute name="expirationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="moCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MOCategory" inverseName="moTask" inverseEntity="MOCategory"/>
     </entity>
     <elements>
-        <element name="MOCategory" positionX="-63" positionY="-18" width="128" height="73"/>
+        <element name="MOCategory" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="MOTask" positionX="-63" positionY="0" width="128" height="88"/>
     </elements>
 </model>

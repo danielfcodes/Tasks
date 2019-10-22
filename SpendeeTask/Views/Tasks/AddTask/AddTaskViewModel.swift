@@ -22,4 +22,9 @@ class AddTaskViewModel {
         self.category = category
     }
     
+    func saveTask(name: String, expirationDate: String) {
+        guard category != nil else { return }
+        
+    }
+    
 }

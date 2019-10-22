@@ -78,6 +78,7 @@ class AddTaskViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemGreen
         button.layer.cornerRadius = 8
+        button.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -103,8 +104,7 @@ class AddTaskViewController: UIViewController {
         super.viewDidLoad()
         initialSetup()
         makeBindings()
-        
-        showDatePicker()
+        setupDatePicker()
     }
     
     private func initialSetup() {
@@ -158,7 +158,7 @@ class AddTaskViewController: UIViewController {
         }
     }
     
-    private func showDatePicker() {
+    private func setupDatePicker() {
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44))
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneDatePickerPressed))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
@@ -188,6 +188,12 @@ class AddTaskViewController: UIViewController {
     @objc
     private func cancelDatePickerPressend(){
         view.endEditing(true)
+    }
+    
+    @objc
+    private func saveButtonPressed() {
+        // TODO: Make some validations
+        viewModel.saveTask(name: nameTextField.text ?? "", expirationDate: expirationDateTextField.text ?? "")
     }
     
 }
