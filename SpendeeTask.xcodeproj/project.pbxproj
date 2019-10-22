@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F3B0C20235EFE1900A42903 /* AddCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B0C1F235EFE1900A42903 /* AddCategoryViewModel.swift */; };
 		4C39BAED235E467D00917EA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BAEC235E467D00917EA9 /* AppDelegate.swift */; };
 		4C39BAEF235E467D00917EA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BAEE235E467D00917EA9 /* SceneDelegate.swift */; };
 		4C39BAF6235E468100917EA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C39BAF5235E468100917EA9 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F3B0C1F235EFE1900A42903 /* AddCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewModel.swift; sourceTree = "<group>"; };
 		4C39BAE9235E467D00917EA9 /* SpendeeTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpendeeTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C39BAEC235E467D00917EA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C39BAEE235E467D00917EA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				4C39BB36235E7BC900917EA9 /* AddCategoryViewController.swift */,
+				0F3B0C1F235EFE1900A42903 /* AddCategoryViewModel.swift */,
 			);
 			path = AddCategory;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				4C39BB11235E5A8E00917EA9 /* SettingsViewController.swift in Sources */,
 				4C39BAED235E467D00917EA9 /* AppDelegate.swift in Sources */,
 				4C39BAEF235E467D00917EA9 /* SceneDelegate.swift in Sources */,
+				0F3B0C20235EFE1900A42903 /* AddCategoryViewModel.swift in Sources */,
 				4C39BB0E235E59A400917EA9 /* DetailTaskViewController.swift in Sources */,
 				4C39BB37235E7BC900917EA9 /* AddCategoryViewController.swift in Sources */,
 				4C39BB0B235E4F0500917EA9 /* CellProtocol.swift in Sources */,

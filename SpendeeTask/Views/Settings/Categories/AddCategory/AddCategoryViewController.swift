@@ -44,6 +44,15 @@ class AddCategoryViewController: UIViewController {
         return collectionView
     }()
     
+    private let saveButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Save", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .systemGreen
+        button.layer.cornerRadius = 8
+        return button
+    }()
+    
     private let colors: [UIColor] = [.black, .blue, .brown, .cyan, .gray, .green, .magenta, .orange, .purple, .red]
     
     override func viewDidLoad() {
@@ -62,6 +71,7 @@ class AddCategoryViewController: UIViewController {
         view.addSubview(nameStack)
         view.addSubview(colorView)
         view.addSubview(collectionView)
+        view.addSubview(saveButton)
         
         nameStack.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(24)
@@ -81,6 +91,13 @@ class AddCategoryViewController: UIViewController {
             make.left.equalToSuperview().offset(24)
             make.right.equalToSuperview().offset(-24)
             make.height.equalTo(50)
+        }
+        
+        saveButton.snp.makeConstraints { make in
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-24)
+            make.left.equalToSuperview().offset(24)
+            make.right.equalToSuperview().offset(-24)
+            make.height.equalTo(44)
         }
     }
     
