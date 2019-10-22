@@ -19,9 +19,26 @@ class TasksViewController: UIViewController {
         return tableView
     }()
     
+    private let viewModel: TasksViewModel
+    
+    init(viewModel: TasksViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        makeBindings()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.getTasks()
     }
     
     private func initialSetup() {
@@ -45,6 +62,12 @@ class TasksViewController: UIViewController {
         navigationItem.rightBarButtonItems = [addTaskButton, settingsButton]
     }
     
+    private func makeBindings() {
+        viewModel.tasksDidLoad = { [weak self] in
+            self?.tableView.reloadData()
+        }
+    }
+    
     @objc
     private func addTaskPressed() {
         let addTaskViewModel = AddTaskViewModel()
@@ -61,7 +84,7 @@ class TasksViewController: UIViewController {
     }
     
     private func showDetailTask(indexPath: IndexPath) {
-        let detailViewModel = DetailTaskViewModel(task: Task(name: "", expirationDate: "", category: Category(name: "", color: "#FFFFFF")))
+        let detailViewModel = DetailTaskViewModel(task: Task(name: "", expirationDate: "", isDone: false, category: Category(name: "", color: "#FFFFFF")))
         let detailTaskViewController = DetailTaskViewController(withViewModel: detailViewModel)
         navigationController?.pushViewController(detailTaskViewController, animated: true)
     }
@@ -84,11 +107,12 @@ extension TasksViewController: UITableViewDelegate {
 extension TasksViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return viewModel.tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TaskCell.identifier, for: indexPath) as? TaskCell else { return UITableViewCell() }
+        cell.viewModel = viewModel.getViewModel(at: indexPath)
         return cell
     }
     

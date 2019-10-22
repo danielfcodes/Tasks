@@ -42,6 +42,12 @@ class TaskCell: UITableViewCell {
         return button
     }()
     
+    var viewModel: TaskCellViewModel? {
+        didSet {
+            fillUI()
+        }
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
@@ -80,6 +86,13 @@ class TaskCell: UITableViewCell {
             make.height.equalTo(34)
             make.width.equalTo(100)
         }
+    }
+    
+    private func fillUI() {
+        nameLabel.text = viewModel?.name
+        expirationDateLabel.text = viewModel?.expirationDate
+        categoryView.backgroundColor = UIColor(hexString: viewModel?.categoryColor ?? "")
+        doneButton.isHidden = viewModel?.isDone ?? true
     }
     
 }

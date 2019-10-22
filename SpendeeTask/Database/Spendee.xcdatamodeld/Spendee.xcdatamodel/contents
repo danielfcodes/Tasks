@@ -7,11 +7,12 @@
     </entity>
     <entity name="MOTask" representedClassName="MOTask" syncable="YES">
         <attribute name="expirationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="moCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MOCategory" inverseName="moTask" inverseEntity="MOCategory"/>
     </entity>
     <elements>
         <element name="MOCategory" positionX="-63" positionY="-18" width="128" height="88"/>
-        <element name="MOTask" positionX="-63" positionY="0" width="128" height="88"/>
+        <element name="MOTask" positionX="-63" positionY="0" width="128" height="103"/>
     </elements>
 </model>

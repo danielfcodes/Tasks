@@ -21,7 +21,7 @@ class AddCategoryViewController: UIViewController {
     private let nameTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
-        textField.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        textField.font = UIFont.systemFont(ofSize: 16)
         return textField
     }()
     

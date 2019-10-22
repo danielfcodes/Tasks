@@ -16,7 +16,14 @@ class AddTaskViewModel {
         }
     }
     
+    var taskSaved: (() -> Void)?
     var categoryDidUpdate: (() -> Void)?
+    
+    private let taskDataSource: TaskDataSourceProtocol
+    
+    init(taskDataSource: TaskDataSourceProtocol = TaskDataSource()) {
+        self.taskDataSource = taskDataSource
+    }
     
     func setCategory(_ category: Category) {
         self.category = category
@@ -24,7 +31,13 @@ class AddTaskViewModel {
     
     func saveTask(name: String, expirationDate: String) {
         guard category != nil else { return }
-        
+        let task = Task(name: name, expirationDate: expirationDate, isDone: false, category: category!)
+        taskDataSource.saveTask(task) { result in
+            switch result {
+            case .success: self.taskSaved?()
+            case .failure(let error): print("Error while saving task \(error.localizedDescription)")
+            }
+        }
     }
     
 }

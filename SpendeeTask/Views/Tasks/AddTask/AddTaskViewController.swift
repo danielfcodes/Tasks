@@ -156,6 +156,10 @@ class AddTaskViewController: UIViewController {
         viewModel.categoryDidUpdate = { [weak self] in
             self?.categoryValueLabel.text = self?.viewModel.category?.name
         }
+        
+        viewModel.taskSaved = { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
     }
     
     private func setupDatePicker() {
