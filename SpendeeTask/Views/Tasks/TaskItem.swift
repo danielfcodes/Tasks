@@ -16,13 +16,13 @@ enum TaskSection: String {
 protocol TaskItemProtocol {
     var sectionType: TaskSection { get }
     var sectionTitle: String { get }
-    var tasks: [Task] { get }
+    var tasks: [Task] { get set }
 }
 
-struct TaskItem: TaskItemProtocol {
+class TaskItem: TaskItemProtocol {
     
     let sectionType: TaskSection
-    let tasks: [Task]
+    var tasks: [Task]
     
     var sectionTitle: String {
         return sectionType.rawValue.capitalized

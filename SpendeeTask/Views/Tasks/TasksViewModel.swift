@@ -33,7 +33,7 @@ class TasksViewModel {
         }
     }
     
-    func getViewModel(at indexPath: IndexPath) -> TaskCellViewModel {
+    func getTaskCellViewModel(at indexPath: IndexPath) -> TaskCellViewModel {
         return TaskCellViewModel(task: getTask(atIndexPath: indexPath))
     }
     
@@ -45,8 +45,19 @@ class TasksViewModel {
         return items[indexPath.section].tasks[indexPath.row]
     }
     
+    func taskRemoveFromPending(withIndexPath indexPath: IndexPath) -> Task? {
+        guard var pendingTasks = items.first(where: { $0.sectionType == .pending }) else { return nil }
+        return pendingTasks.tasks.remove(at: indexPath.row)
+    }
+    
+    func taskAddToDone(withIndexPath indexPath: IndexPath, task: Task) {
+        guard var doneTasks = items.first(where: { $0.sectionType == .done }) else { return }
+        doneTasks.tasks.insert(task, at: indexPath.row)
+    }
+    
     private func setupItems() {
-        let doneTasks = tasks.filter { $0.isDone }
+        var doneTasks = tasks.filter { $0.isDone }
+        doneTasks.sort(by: { $0.setToDone!.compare($1.setToDone!) == .orderedDescending })
         let pendingTasks = tasks.filter { !$0.isDone }
         items.append(TaskItem(sectionType: .pending, tasks: pendingTasks))
         items.append(TaskItem(sectionType: .done, tasks: doneTasks))

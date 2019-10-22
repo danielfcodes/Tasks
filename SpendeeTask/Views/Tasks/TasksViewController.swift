@@ -125,8 +125,23 @@ extension TasksViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TaskCell.identifier, for: indexPath) as? TaskCell else { return UITableViewCell() }
-        cell.viewModel = viewModel.getViewModel(at: indexPath)
+        cell.delegate = self
+        cell.viewModel = viewModel.getTaskCellViewModel(at: indexPath)
         return cell
+    }
+    
+}
+
+extension TasksViewController: TaskCellDelegate {
+    
+    func taskCellDelegateDidSetToDone(taskCell: TaskCell) {
+        guard let oldIndexPath = tableView.indexPath(for: taskCell),
+            let deletedTask = viewModel.taskRemoveFromPending(withIndexPath: oldIndexPath) else { return }
+        tableView.deleteRows(at: [oldIndexPath], with: .left)
+        
+        let newIndexPath = IndexPath(row: 0, section: 1)
+        viewModel.taskAddToDone(withIndexPath: newIndexPath, task: deletedTask)
+        tableView.insertRows(at: [newIndexPath], with: .right)
     }
     
 }

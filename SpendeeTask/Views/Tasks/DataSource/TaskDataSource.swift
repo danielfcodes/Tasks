@@ -107,6 +107,7 @@ class TaskDataSource: TaskDataSourceProtocol {
             switch result {
             case .success(let moTask):
                 moTask.isDone = true
+                moTask.setToDone = Date()
                 do {
                     try context.save()
                     completion(.success(EmptyObject()))

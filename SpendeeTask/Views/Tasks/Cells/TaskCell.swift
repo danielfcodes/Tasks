@@ -9,7 +9,13 @@
 import UIKit
 import SnapKit
 
+protocol TaskCellDelegate: class {
+    func taskCellDelegateDidSetToDone(taskCell: TaskCell)
+}
+
 class TaskCell: UITableViewCell {
+    
+    weak var delegate: TaskCellDelegate?
     
     var viewModel: TaskCellViewModel? {
         didSet {
@@ -105,6 +111,7 @@ class TaskCell: UITableViewCell {
     @objc
     private func doneButtonPressed() {
         viewModel?.setTaskToDone()
+        delegate?.taskCellDelegateDidSetToDone(taskCell: self)
     }
     
 }

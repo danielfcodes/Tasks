@@ -17,6 +17,7 @@ extension MOTask {
 
     @NSManaged public var name: String?
     @NSManaged public var expirationDate: Date?
+    @NSManaged public var setToDone: Date?
     @NSManaged public var isDone: Bool
     @NSManaged public var moCategory: MOCategory?
 

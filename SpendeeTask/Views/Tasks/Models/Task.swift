@@ -10,6 +10,7 @@ import Foundation
 
 class Task {
     var name: String
+    var setToDone: Date?
     var expirationDate: String
     var isDone: Bool = false
     var category: Category
@@ -19,6 +20,7 @@ class Task {
         self.name = moTask.name ?? ""
         self.expirationDate = ""
         self.isDone = moTask.isDone
+        self.setToDone = moTask.setToDone
         self.category = Category(moCategory: moCategory)
     }
     
