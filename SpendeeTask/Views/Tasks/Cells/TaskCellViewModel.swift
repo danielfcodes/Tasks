@@ -56,4 +56,5 @@ class TaskCellViewModel {
  - DateFormatter para las celdas
  - TaskItem dentro de TASKS folder
  - Cambiar el estilo del DONE BUTTON cuando este en DONE
+ - Un label informativo en el detalle
  */

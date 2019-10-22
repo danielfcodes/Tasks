@@ -15,6 +15,7 @@ protocol TaskDataSourceProtocol {
     func getTasks(completion: @escaping (Result<[Task], Error>) -> Void)
     func getTask(withName name: String, completion: @escaping (Result<MOTask, Error>) -> Void)
     func setTaskToDone(withName name: String, completion: @escaping (Result<EmptyObject, Error>) -> Void)
+    func deleteTask(withName name: String)
 }
 
 class TaskDataSource: TaskDataSourceProtocol {
@@ -115,6 +116,22 @@ class TaskDataSource: TaskDataSourceProtocol {
                     completion(.failure(error))
                 }
             case .failure(let error): completion(.failure(error))
+            }
+        }
+    }
+    
+    func deleteTask(withName name: String) {
+        getTask(withName: name) { result in
+            switch result {
+            case .success(let moTask):
+                let context = CoreDataManager.shared.viewContext
+                context.delete(moTask)
+                do {
+                    try context.save()
+                } catch let error {
+                    print("Catch error here \(error.localizedDescription)")
+                }
+            case .failure(let error): print("Catch error here \(error.localizedDescription)")
             }
         }
     }

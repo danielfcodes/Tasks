@@ -55,6 +55,11 @@ class TasksViewModel {
         doneTasks.tasks.insert(task, at: indexPath.row)
     }
     
+    func deleteTask(atIndexPath indexPath: IndexPath) {
+        let taskToRemove = items[indexPath.section].tasks.remove(at: indexPath.row)
+        taskDataSource.deleteTask(withName: taskToRemove.name)
+    }
+    
     private func setupItems() {
         var doneTasks = tasks.filter { $0.isDone }
         doneTasks.sort(by: { $0.setToDone!.compare($1.setToDone!) == .orderedDescending })
