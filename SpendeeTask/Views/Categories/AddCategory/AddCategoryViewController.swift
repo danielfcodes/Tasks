@@ -117,12 +117,16 @@ class AddCategoryViewController: UIViewController, StackCreator {
     
     private func makeBindings() {
         viewModel.categorySaved = { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
+            DispatchQueue.main.async {
+                self?.navigationController?.popViewController(animated: true)
+            }
         }
         
         viewModel.categoryDidLoad = { [weak self] in
-            self?.nameTextField.text = self?.viewModel.categoryName
-            self?.colorView.backgroundColor = UIColor(hexString: self?.viewModel.categoryColor ?? "")
+            DispatchQueue.main.async {
+                self?.nameTextField.text = self?.viewModel.categoryName
+                self?.colorView.backgroundColor = UIColor(hexString: self?.viewModel.categoryColor ?? "")
+            }
         }
     }
     

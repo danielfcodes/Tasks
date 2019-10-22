@@ -52,7 +52,5 @@ class TaskCellViewModel {
 /* TODO:
 - Keyboards se van con tap
  - pasar el getMO Model al data source en lugar de hacer un get en el view model
- - Poner en la main queue todos los bindings que actualicen vista
  - Cambiar el estilo del DONE BUTTON cuando este en DONE
- - Un label informativo en el detalle
  */

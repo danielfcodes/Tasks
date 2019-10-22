@@ -154,11 +154,15 @@ class AddTaskViewController: UIViewController, StackCreator {
     
     private func makeBindings() {
         viewModel.categoryDidUpdate = { [weak self] in
-            self?.categoryValueLabel.text = self?.viewModel.category?.name
+            DispatchQueue.main.async {
+                self?.categoryValueLabel.text = self?.viewModel.category?.name
+            }
         }
         
         viewModel.taskSaved = { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
+            DispatchQueue.main.async {
+                self?.navigationController?.popViewController(animated: true)
+            }
         }
     }
     

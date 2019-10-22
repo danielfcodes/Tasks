@@ -62,7 +62,9 @@ class CategoriesViewController: UIViewController {
     
     private func makeBindings() {
         viewModel.categoriesDidLoad = { [weak self] in
-            self?.tableView.reloadData()
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }
     }
     

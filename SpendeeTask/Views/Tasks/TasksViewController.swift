@@ -64,7 +64,9 @@ class TasksViewController: UIViewController {
     
     private func makeBindings() {
         viewModel.tasksDidLoad = { [weak self] in
-            self?.tableView.reloadData()
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }
     }
     
