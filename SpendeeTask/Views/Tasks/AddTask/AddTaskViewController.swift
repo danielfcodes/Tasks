@@ -184,7 +184,7 @@ class AddTaskViewController: UIViewController {
     @objc
     private func doneDatePickerPressed(){
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
+        formatter.dateFormat = DateFormatter.stringFormat
         expirationDateTextField.text = formatter.string(from: datePicker.date)
         view.endEditing(true)
     }

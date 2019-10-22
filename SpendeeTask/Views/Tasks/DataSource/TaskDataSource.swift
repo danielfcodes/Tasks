@@ -30,7 +30,7 @@ class TaskDataSource: TaskDataSourceProtocol {
         let context = CoreDataManager.shared.viewContext
         let moTask = MOTask(context: context)
         moTask.name = task.name
-        moTask.expirationDate = Date()
+        moTask.expirationDate = task.expirationDate
         moTask.isDone = task.isDone
         
         categoryDataSource.getCategory(withName: task.category.name) { result in
@@ -53,7 +53,7 @@ class TaskDataSource: TaskDataSourceProtocol {
         let context = CoreDataManager.shared.viewContext
 
         moTask.name = task.name
-        moTask.expirationDate = Date()
+        moTask.expirationDate = task.expirationDate
         moTask.isDone = task.isDone
         
         categoryDataSource.getCategory(withName: task.category.name) { result in

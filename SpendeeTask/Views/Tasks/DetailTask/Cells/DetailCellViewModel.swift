@@ -15,7 +15,7 @@ class DetailCellViewModel {
     }
     
     var expirationDate: String {
-        return task.expirationDate
+        return task.expirationDateString
     }
     
     var isDone: Bool {
@@ -34,6 +34,10 @@ class DetailCellViewModel {
     
     func setName(_ name: String) {
         task.name = name
+    }
+    
+    func setExpirationDate(_ expirationDate: String) {
+        task.expirationDate = DateFormatter.toDate(fromString: expirationDate) ?? Date()
     }
     
     func setTaskToDone() {

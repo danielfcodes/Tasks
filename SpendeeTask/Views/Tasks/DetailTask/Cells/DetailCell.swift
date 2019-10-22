@@ -42,9 +42,17 @@ class DetailCell: UITableViewCell {
         return button
     }()
     
+    private let datePicker:  UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .dateAndTime
+        datePicker.minimumDate = Date()
+        return datePicker
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
+        setupDatePicker()
         selectionStyle = .none
     }
     
@@ -97,6 +105,31 @@ class DetailCell: UITableViewCell {
     @objc
     private func doneButtonPressed() {
         viewModel?.setTaskToDone()
+    }
+    
+    private func setupDatePicker() {
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44))
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneDatePickerPressed))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelDatePickerPressend));
+        
+        toolbar.setItems([doneButton, spaceButton, cancelButton], animated: false)
+        dateTextField.inputAccessoryView = toolbar
+        dateTextField.inputView = datePicker
+    }
+    
+    @objc
+    private func doneDatePickerPressed(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = DateFormatter.stringFormat
+        dateTextField.text = formatter.string(from: datePicker.date)
+        viewModel?.setExpirationDate(dateTextField.text ?? "")
+        endEditing(true)
+    }
+
+    @objc
+    private func cancelDatePickerPressend(){
+        endEditing(true)
     }
     
 }

@@ -15,7 +15,7 @@ class TaskCellViewModel {
     }
     
     var expirationDate: String {
-        return task.expirationDate
+        return task.expirationDateString
     }
     
     var isDone: Bool {
