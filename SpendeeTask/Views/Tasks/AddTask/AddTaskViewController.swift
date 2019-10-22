@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddTaskViewController: UIViewController {
+class AddTaskViewController: UIViewController, StackCreator {
     
     private let introductionLabel: UILabel = {
         let label = UILabel()
@@ -116,11 +116,11 @@ class AddTaskViewController: UIViewController {
     private func setupViews() {
         view.addSubview(introductionLabel)
         
-        let nameStack = stackHorizontally(views: [nameLabel, nameTextField])
-        let expirationStack = stackHorizontally(views: [expirationDateLabel, expirationDateTextField])
-        let categoryStack = stackHorizontally(views: [categoryLabel, categoryValueLabel])
-        let verticalStack = stackVertically(views: [nameStack, expirationStack, categoryStack])
-        let buttonStack = stackHorizontally(views: [categoryButton, saveButton])
+        let nameStack = stackHorizontally(views: [nameLabel, nameTextField], alignment: .fill, distribution: .fillEqually)
+        let expirationStack = stackHorizontally(views: [expirationDateLabel, expirationDateTextField], alignment: .fill, distribution: .fillEqually)
+        let categoryStack = stackHorizontally(views: [categoryLabel, categoryValueLabel], alignment: .fill, distribution: .fillEqually)
+        let verticalStack = stackVertically(views: [nameStack, expirationStack, categoryStack], alignment: .fill, distribution: .fillEqually)
+        let buttonStack = stackHorizontally(views: [categoryButton, saveButton], alignment: .fill, distribution: .fillEqually)
 
         view.addSubview(verticalStack)
         view.addSubview(buttonStack)

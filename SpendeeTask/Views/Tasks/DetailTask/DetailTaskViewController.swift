@@ -88,7 +88,7 @@ extension DetailTaskViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let sectionType = viewModel.sectionForHeader(index: indexPath.section)
         switch sectionType {
-        case .general: return 160
+        case .general: return 200
         case .category: return 60
         }
     }

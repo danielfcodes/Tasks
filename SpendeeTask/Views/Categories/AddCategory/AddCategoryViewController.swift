@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class AddCategoryViewController: UIViewController {
+class AddCategoryViewController: UIViewController, StackCreator {
     
     private let nameLabel: UILabel = {
         let label = UILabel()
@@ -81,7 +81,7 @@ class AddCategoryViewController: UIViewController {
     }
     
     private func setupViews() {
-        let nameStack = stackHorizontally(views: [nameLabel, nameTextField])
+        let nameStack = stackHorizontally(views: [nameLabel, nameTextField], alignment: .fill, distribution: .fillEqually)
         view.addSubview(nameStack)
         view.addSubview(colorView)
         view.addSubview(collectionView)

@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class DetailCell: UITableViewCell {
+class DetailCell: UITableViewCell, StackCreator {
     
     var viewModel: DetailCellViewModel? {
         didSet {
@@ -17,6 +17,15 @@ class DetailCell: UITableViewCell {
             fillUI()
         }
     }
+    
+    private let introductionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "You can still update the name, date and category of your task."
+        label.numberOfLines = 0
+        label.textColor = .systemGray
+        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        return label
+    }()
     
     private lazy var nameTextField: UITextField = {
         let textField = UITextField()
@@ -61,26 +70,30 @@ class DetailCell: UITableViewCell {
     }
     
     private func setupViews() {
-        addSubview(nameTextField)
-        addSubview(dateTextField)
-        addSubview(doneButton)
+        addSubview(introductionLabel)
+
+        let textFieldsStack = stackVertically(views: [nameTextField, dateTextField], alignment: .leading, distribution: .fillProportionally)
+        let horizontalStack = stackHorizontally(views: [textFieldsStack, doneButton], alignment: .leading, distribution: .fillProportionally)
         
-        nameTextField.snp.makeConstraints { make in
+        addSubview(horizontalStack)
+        
+        introductionLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(24)
             make.left.equalToSuperview().offset(24)
-        }
-        
-        dateTextField.snp.makeConstraints { make in
-            make.top.equalTo(nameTextField.snp.bottom).offset(16)
-            make.left.equalToSuperview().offset(24)
+            make.right.equalToSuperview().offset(-24)
         }
         
         doneButton.snp.makeConstraints { make in
-            make.top.equalTo(dateTextField.snp.bottom).offset(24)
-            make.right.equalToSuperview().offset(-24)
             make.height.equalTo(34)
             make.width.equalTo(100)
         }
+        
+        horizontalStack.snp.makeConstraints { make in
+            make.top.equalTo(introductionLabel.snp.bottom).offset(24)
+            make.left.equalToSuperview().offset(24)
+            make.right.equalToSuperview().offset(-24)
+        }
+        
     }
     
     private func fillUI() {

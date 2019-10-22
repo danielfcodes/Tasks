@@ -48,6 +48,7 @@
 		4C39BB3A235F7FDA00917EA9 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB39235F7FDA00917EA9 /* ColorPalette.swift */; };
 		4C39BB3C235F874C00917EA9 /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB3B235F874C00917EA9 /* TaskItem.swift */; };
 		4C39BB3E235F9F6B00917EA9 /* DateFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB3D235F9F6B00917EA9 /* DateFormatterExtensions.swift */; };
+		4C39BB40235FA67500917EA9 /* StackCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39BB3F235FA67500917EA9 /* StackCreator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		4C39BB39235F7FDA00917EA9 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		4C39BB3B235F874C00917EA9 /* TaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
 		4C39BB3D235F9F6B00917EA9 /* DateFormatterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtensions.swift; sourceTree = "<group>"; };
+		4C39BB3F235FA67500917EA9 /* StackCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCreator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				4C39BB0A235E4F0500917EA9 /* CellProtocol.swift */,
+				4C39BB3F235FA67500917EA9 /* StackCreator.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				4C39BB14235E5BD900917EA9 /* AddTaskViewController.swift in Sources */,
 				4C39BB16235E5DE000917EA9 /* DetailCell.swift in Sources */,
 				0F7CF70E235F349F001B3A84 /* MOTask+CoreDataClass.swift in Sources */,
+				4C39BB40235FA67500917EA9 /* StackCreator.swift in Sources */,
 				4C39BB04235E478500917EA9 /* TasksViewController.swift in Sources */,
 				4C39BB31235E781500917EA9 /* CoreDataManager.swift in Sources */,
 				4C39BB1E235E5F6200917EA9 /* Task.swift in Sources */,

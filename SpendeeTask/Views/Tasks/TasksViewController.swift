@@ -95,7 +95,11 @@ class TasksViewController: UIViewController {
 extension TasksViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        let sectionType = viewModel.items[indexPath.section].sectionType
+        switch sectionType {
+        case .done: return 100
+        case .pending: return 120
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
