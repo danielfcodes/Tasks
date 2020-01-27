@@ -16,7 +16,6 @@ protocol NotificationSchedulerDelegate {
 class NotificationScheduler: NotificationSchedulerDelegate {
     
     func scheduleNotification(forDate date: Date, withName name: String) {
-        
         let components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
         

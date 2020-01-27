@@ -113,16 +113,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0F3B0C22235EFF7D00A42903 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				0F3B0C37235F027500A42903 /* MOCategory+CoreDataClass.swift */,
-				0F3B0C38235F027500A42903 /* MOCategory+CoreDataProperties.swift */,
-				0F3B0C35235F01B800A42903 /* Category.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		0F3B0C3B235F029A00A42903 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,14 +156,8 @@
 		4C39BAEB235E467D00917EA9 /* SpendeeTask */ = {
 			isa = PBXGroup;
 			children = (
-				4C39BB47235FB0AD00917EA9 /* NotificationManager */,
-				4C39BB38235F7FBC00917EA9 /* ColorPalette */,
-				4C39BB2E235E76FA00917EA9 /* Database */,
-				4C39BB44235FA8DC00917EA9 /* Helpers */,
-				4C39BB2B235E74D900917EA9 /* Extensions */,
-				4C39BB09235E4EF800917EA9 /* Protocols */,
+				4C3A466A23DEE12E0092F18D /* Src */,
 				4C39BB01235E46C200917EA9 /* Resources */,
-				4C39BB02235E473200917EA9 /* Views */,
 				4C39BB00235E469D00917EA9 /* SupportingFiles */,
 			);
 			path = SpendeeTask;
@@ -198,7 +182,7 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		4C39BB02235E473200917EA9 /* Views */ = {
+		4C39BB02235E473200917EA9 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				4C39BB24235E70A400917EA9 /* Categories */,
@@ -206,14 +190,13 @@
 				4C39BB0F235E5A8200917EA9 /* Settings */,
 				4C39BB05235E478C00917EA9 /* Tasks */,
 			);
-			path = Views;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		4C39BB05235E478C00917EA9 /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
 				0F7CF710235F37ED001B3A84 /* DataSource */,
-				4C39BB1C235E5F5900917EA9 /* Models */,
 				4C39BB12235E5BC500917EA9 /* AddTask */,
 				4C39BB0C235E599300917EA9 /* DetailTask */,
 				4C39BB06235E4EAB00917EA9 /* Cells */,
@@ -280,16 +263,6 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		4C39BB1C235E5F5900917EA9 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				0F7CF70C235F349F001B3A84 /* MOTask+CoreDataClass.swift */,
-				0F7CF70D235F349F001B3A84 /* MOTask+CoreDataProperties.swift */,
-				4C39BB1D235E5F6200917EA9 /* Task.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		4C39BB21235E6EC300917EA9 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,7 +275,6 @@
 			isa = PBXGroup;
 			children = (
 				0F3B0C3B235F029A00A42903 /* DataSource */,
-				0F3B0C22235EFF7D00A42903 /* Models */,
 				0F7CF709235F2887001B3A84 /* ChangeCategory */,
 				4C39BB35235E7BB400917EA9 /* AddCategory */,
 				4C39BB27235E72E900917EA9 /* Cells */,
@@ -379,6 +351,42 @@
 				4C39BB48235FB0BF00917EA9 /* NotificationScheduler.swift */,
 			);
 			path = NotificationManager;
+			sourceTree = "<group>";
+		};
+		4C3A466823DEE0890092F18D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0F3B0C35235F01B800A42903 /* Category.swift */,
+				4C39BB1D235E5F6200917EA9 /* Task.swift */,
+				4C3A466923DEE0940092F18D /* CD */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4C3A466923DEE0940092F18D /* CD */ = {
+			isa = PBXGroup;
+			children = (
+				0F3B0C37235F027500A42903 /* MOCategory+CoreDataClass.swift */,
+				0F3B0C38235F027500A42903 /* MOCategory+CoreDataProperties.swift */,
+				0F7CF70C235F349F001B3A84 /* MOTask+CoreDataClass.swift */,
+				0F7CF70D235F349F001B3A84 /* MOTask+CoreDataProperties.swift */,
+			);
+			path = CD;
+			sourceTree = "<group>";
+		};
+		4C3A466A23DEE12E0092F18D /* Src */ = {
+			isa = PBXGroup;
+			children = (
+				4C39BB38235F7FBC00917EA9 /* ColorPalette */,
+				4C39BB02235E473200917EA9 /* Modules */,
+				4C39BB09235E4EF800917EA9 /* Protocols */,
+				4C39BB2B235E74D900917EA9 /* Extensions */,
+				4C39BB44235FA8DC00917EA9 /* Helpers */,
+				4C39BB2E235E76FA00917EA9 /* Database */,
+				4C39BB47235FB0AD00917EA9 /* NotificationManager */,
+				4C3A466823DEE0890092F18D /* Models */,
+			);
+			path = Src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
